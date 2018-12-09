@@ -23,7 +23,6 @@ function precache() {
             "css/2047.css",
             "css/tocas.css",
             "js/index.js",
-            "js/tocas.js",
             "icons/16.png",
             "icons/32.png",
             "icons/192.png",
