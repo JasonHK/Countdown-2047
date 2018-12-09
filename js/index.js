@@ -33,3 +33,11 @@ let countdown = setInterval(() => {
         document.getElementById("countdown").classList.add('disabled');
     }
 }, 1000);
+
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+        navigator.serviceWorker.register("worker.js", {
+            scope: "./"
+        });
+    });
+};
