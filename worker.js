@@ -22,7 +22,7 @@ function precache() {
             "worker.js",
             "css/2047.css",
             "css/tocas.css",
-            "js/2047.js",
+            "js/index.js",
             "js/tocas.js",
             "icons/16.png",
             "icons/32.png",
