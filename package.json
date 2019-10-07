@@ -1,0 +1,69 @@
+{
+  "name": "countdown-2047",
+  "description": "Countdown from now to Jul 1, 2047.",
+  "version": "2019.10.5",
+  "license": "Unlicense",
+  "private": true,
+  "author": "Jason Kwok <me@jasonhk.net> (https://jasonhk.net)",
+  "homepage": "https://github.com/JasonHK/Countdown-2047#readme",
+  "keywords": [
+    "countdown"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JasonHK/Countdown-2047.git"
+  },
+  "bugs": {
+    "url": "https://github.com/JasonHK/Countdown-2047/issues"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "npx ws --port 2047 --directory dist --open",
+    "start:watch": "npx concurrently --kill-others npm:start npm:watch",
+    "watch": "npx npm-watch",
+    "build": "npm run build:html && npm run build:css",
+    "build:css": "npx tailwind build src/2047.css -o dist/2047.css && npx copyfiles --up 1 src/fonts/* dist",
+    "build:html": "npx copyfiles --up 1 src/*.html dist",
+    "build:js": "npx copyfiles --up 1 src/*.js dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "watch": {
+    "build:css": {
+      "patterns": [
+        "src"
+      ],
+      "extensions": [
+        "css"
+      ]
+    },
+    "build:html": {
+      "patterns": [
+        "src"
+      ],
+      "extensions": [
+        "html"
+      ]
+    },
+    "build:js": {
+      "patterns": [
+        "src"
+      ],
+      "extensions": [
+        "js"
+      ]
+    }
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "concurrently": "^4.1.2",
+    "copyfiles": "^2.1.1",
+    "http-server": "^0.11.1",
+    "local-web-server": "^3.0.7",
+    "nodemon": "^1.19.3",
+    "npm-watch": "^0.6.0",
+    "stylelint": "^11.0.0",
+    "stylelint-config-standard": "^19.0.0",
+    "tailwindcss": "^1.1.2",
+    "typescript": "^3.6.3"
+  }
+}
