@@ -1,0 +1,33 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "baseUrl": ".",
+        "rootDir": "src",
+        "outDir": "dist",
+        "lib": [
+            "dom",
+            "webworker",
+        ],
+        "paths": {
+            "*": [
+                "*",
+                "node_modules/*",
+            ],
+        },
+        "allowJs": true,
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "sourceMap": true,
+    },
+    "files": [
+        "src/index.ts"
+    ],
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [],
+}
