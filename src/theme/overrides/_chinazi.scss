@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+$chinazi-body-text-color:       $color-black;
+$chinazi-body-background-color: $color-chinazi-red;
+
+$chinazi-header-subtitle-text-color: $color-gray-900;
+
+$chinazi-main-unit-text-color: $color-gray-900;
+
+$chinazi-footer-text-color:             $color-gray-800;
+$chinazi-footer-link-text-color:        $color-gray-800;
+$chinazi-footer-link-text-hover-color:  $color-blue-800;
+$chinazi-footer-link-text-active-color: $color-blue-900;
+$chinazi-footer-heart-text-color:       $color-black;
+
+body.chinazi
+{
+    color: $chinazi-body-text-color;
+    background-color: $chinazi-body-background-color;
+
+    header > span
+    {
+        color: $chinazi-header-subtitle-text-color;
+    }
+
+    main > section > figure > figcaption
+    {
+        color: $chinazi-main-unit-text-color;
+    }
+
+    footer > p
+    {
+        color: $chinazi-footer-text-color;
+
+        a
+        {
+            color: $chinazi-footer-link-text-color;
+
+            &:hover
+            {
+                color: $chinazi-footer-link-text-hover-color;
+            }
+
+            &:active
+            {
+                color: $chinazi-footer-link-text-active-color;
+            }
+        }
+
+        .heart
+        {
+            color: $chinazi-footer-heart-text-color;
+        }
+    }
+}
