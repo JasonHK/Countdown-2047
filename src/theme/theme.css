@@ -1,0 +1,257 @@
+@charset "UTF-8";
+
+@font-face
+{
+    font-family: "Anonymous Pro";
+    font-weight: normal;
+    font-style: normal;
+    src:
+        local("Anonymous Pro"),
+        local("AnonymousPro"),
+        url("fonts/Anonymous-Pro.woff2") format("woff2"),
+        url("fonts/Anonymous-Pro.ttf") format("truetype");
+}
+
+@tailwind base;
+@tailwind components;
+
+body
+{
+    @apply bg-gray-900 text-gray-100;
+
+    font-family: "Montserrat", sans-serif;
+}
+
+body > #app
+{
+    @apply h-full flex flex-col justify-between;
+
+    min-height: 97vh;
+}
+
+/*
+ * ===== Header Section =====
+ */
+
+header
+{
+    @apply text-center;
+
+    margin-top: 20px;
+}
+
+header > h1
+{
+    @apply uppercase;
+
+    font-size: 35px;
+}
+
+/*
+ * ===== Main Section =====
+ */
+
+main
+{
+    @apply flex flex-col;
+}
+
+main > section
+{
+    @apply flex flex-row justify-center;
+}
+
+main > section > figure
+{
+    @apply text-center;
+
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+main > section > figure > span
+{
+    @apply block;
+
+    width: 2.5ch;
+    font-family: "Anonymous Pro", monospace;
+    font-size: 65px;
+}
+
+main > section > figure > figcaption
+{
+    @apply text-gray-300 uppercase;
+
+    font-size: 18px;
+}
+
+/*
+ * ===== Footer Section =====
+ */
+
+footer
+{
+    @apply text-center;
+
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+footer > p
+{
+    @apply text-gray-400;
+}
+
+footer > p .heart
+{
+    @apply text-red-600;
+
+    line-height: 16px;
+    font-size: 20px;
+}
+
+footer > p a
+{
+    @apply text-blue-400 underline;
+}
+
+footer > p a:hover
+{
+    @apply text-blue-600;
+}
+
+footer > p a:active
+{
+    @apply text-blue-800;
+}
+
+/*
+ * ===== ChiNazi Overrides =====
+ */
+
+body.chinazi
+{
+    @apply bg-red-900 text-black;
+}
+
+/*
+ * ----- Main Section -----
+ */
+
+body.chinazi main > section > figure > figcaption
+{
+    @apply text-black;
+}
+
+/*
+ * ----- Footer Section -----
+ */
+
+body.chinazi footer > p
+{
+    @apply text-gray-900;
+}
+
+body.chinazi footer > p .heart
+{
+    @apply text-black;
+}
+
+body.chinazi footer > p a
+{
+    @apply text-blue-700 underline;
+}
+
+body.chinazi footer > p a:hover
+{
+    @apply text-blue-800;
+}
+
+body.chinazi footer > p a:active
+{
+    @apply text-blue-900;
+}
+
+@screen sm
+{
+    body > #app
+    {
+        min-height: 99vh;
+    }
+
+    /*
+     * ===== Header Section =====
+     */
+
+    header > h1
+    {
+        font-size: 40px;
+    }
+
+    /*
+     * ===== Main Section =====
+     */
+
+    main
+    {
+        @apply flex-row justify-center;
+    }
+
+    main > section
+    {
+        @apply justify-end;
+    }
+
+    /*
+     * ===== Footer Section =====
+     */
+
+    footer
+    {
+        margin-bottom: 20px;
+    }
+}
+
+@screen md
+{
+    /*
+     * ===== Header Section =====
+     */
+
+    header > h1
+    {
+        font-size: 50px;
+    }
+
+    /*
+     * ===== Main Section =====
+     */
+
+    main > section > figure > span
+    {
+        font-size: 75px;
+    }
+}
+
+@screen lg
+{
+    /*
+     * ===== Header Section =====
+     */
+
+    header > h1
+    {
+        font-size: 55px;
+    }
+
+    /*
+     * ===== Main Section =====
+     */
+
+    main > section > figure > span
+    {
+        font-size: 100px;
+    }
+}
+
+@tailwind utilities;
