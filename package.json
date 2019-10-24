@@ -16,54 +16,39 @@
   "bugs": {
     "url": "https://github.com/JasonHK/Countdown-2047/issues"
   },
-  "main": "index.js",
   "scripts": {
     "start": "npx ws --port 2047 --directory dist --open",
-    "start:watch": "npx concurrently --kill-others npm:start npm:watch",
+    "start:dev": "npx webpack-dev-server",
     "watch": "npx npm-watch",
-    "build": "npm run build:html && npm run build:css",
-    "build:css": "npx tailwind build src/2047.css -o dist/2047.css && npx copyfiles --up 1 src/fonts/* dist",
-    "build:html": "npx copyfiles --up 1 src/*.html dist",
-    "build:js": "npx copyfiles --up 1 src/*.js dist",
+    "build": "npm run build:dev",
+    "build:dev": "npx webpack --mode development",
+    "build:prod": "npx webpack --mode production",
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "watch": {
-    "build:css": {
-      "patterns": [
-        "src"
-      ],
-      "extensions": [
-        "css"
-      ]
-    },
-    "build:html": {
-      "patterns": [
-        "src"
-      ],
-      "extensions": [
-        "html"
-      ]
-    },
-    "build:js": {
-      "patterns": [
-        "src"
-      ],
-      "extensions": [
-        "js"
-      ]
-    }
   },
   "dependencies": {},
   "devDependencies": {
-    "concurrently": "^4.1.2",
-    "copyfiles": "^2.1.1",
-    "http-server": "^0.11.1",
+    "autoprefixer": "^9.6.4",
+    "copy-webpack-plugin": "^5.0.4",
+    "css-loader": "^3.2.0",
+    "file-loader": "^4.2.0",
     "local-web-server": "^3.0.7",
-    "nodemon": "^1.19.3",
-    "npm-watch": "^0.6.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "moment-mini": "^2.22.1",
+    "node-sass": "^4.12.0",
+    "node-snackbar": "^0.1.16",
+    "postcss-loader": "^3.0.0",
+    "resolve-url-loader": "^3.1.0",
+    "sass-loader": "^8.0.0",
+    "source-map-loader": "^0.2.4",
     "stylelint": "^11.0.0",
-    "stylelint-config-standard": "^19.0.0",
-    "tailwindcss": "^1.1.2",
-    "typescript": "^3.6.3"
+    "stylelint-config-recommended-scss": "^4.0.0",
+    "stylelint-scss": "^3.11.1",
+    "suitcss-base": "^5.0.0",
+    "ts-loader": "^6.2.0",
+    "typescript": "^3.6.3",
+    "webpack": "^4.41.0",
+    "webpack-bundle-analyzer": "^3.5.2",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.8.2"
   }
 }
