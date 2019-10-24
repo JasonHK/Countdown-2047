@@ -2,21 +2,26 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <meta name="description" content="Countdown from now to Jul 1, 2047. Wish the glory belongs to Hong Kong.">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Countdown 2047</title>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat&display=swap"> 
         <link rel="stylesheet" href="2047.css">
     </head>
     <body>
         <div id="app">
             <header>
-                <h1>Countdown 2047</h1>
+                <h1 id="title">Countdown 2047</h1>
+                <span id="subtitle">The Day When Hong Kong Totally Vanished</span>
             </header>
             <main>
                 <section id="date">
                     <figure id="years">
                         <span>-</span>
                         <figcaption>Years</figcaption>
+                    </figure>
+                    <figure id="months">
+                        <span>-</span>
+                        <figcaption>Months</figcaption>
                     </figure>
                     <figure id="days">
                         <span>-</span>
@@ -40,9 +45,12 @@
             </main>
             <footer>
                 <p>
-                    Made with <span class="heart">&#10084;</span> by <a href="https://github.jasonhk.net/" target="_blank" rel="noopener">Jason Kwok</a>.
-                    Powered by <a href="https://tailwindcss.com/" target="_blank" rel="noopener">Tailwind CSS</a>.
-                    Hope <em>Hong Kong Spirit</em> would never ends.
+                    <span id="author">
+                        Made with <span class="heart">&#10084;</span> by <a href="https://github.jasonhk.net/" target="_blank" rel="noopener">Jason Kwok</a>.
+                    </span>
+                    <span id="message">
+                        Wish the <a href="https://www.youtube.com/watch?v=jXZNOecZreY" target="_blank" rel="noopener">glory</a> belongs to Hong Kong.
+                    </span>
                 </p>
             </footer>
         </div>
