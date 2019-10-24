@@ -24,7 +24,7 @@
     "build:dev": "npx webpack --mode development",
     "build:prod": "npx webpack --mode production",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy:gh-pages": "npm run build:prod && git subtree split --branch gh-pages --prefix dist/"
+    "deploy:gh-pages": "npm run build:prod && git subtree split --prefix \"dist\" --branch \"gh-pages\""
   },
   "dependencies": {},
   "devDependencies": {
