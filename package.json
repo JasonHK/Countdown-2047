@@ -25,7 +25,7 @@
     "build:prod": "npx webpack --mode production",
     "test": "echo \"Error: no test specified\" && exit 1",
     "deploy": "npm run build:prod",
-    "deploy:gh-pages": "npm run deploy:gh-pages:subtree:split-dist && npm run deploy:gh-pages:checkout:gh-pages && npm run deploy:gh-pages:merge:gh-pages && npm run deploy:gh-pages:checkout:master && npm run deploy:gh-pages:delete:gh-pages-temp",
+    "deploy:gh-pages": "npm run deploy:gh-pages:checkout:master && npm run deploy:gh-pages:subtree:split-dist && npm run deploy:gh-pages:checkout:gh-pages && npm run deploy:gh-pages:merge:gh-pages && npm run deploy:gh-pages:checkout:master && npm run deploy:gh-pages:delete:gh-pages-temp",
     "deploy:gh-pages:checkout:gh-pages": "git checkout gh-pages",
     "deploy:gh-pages:checkout:master": "git checkout master",
     "deploy:gh-pages:delete:gh-pages-temp": "git branch -d gh-pages-temp",
