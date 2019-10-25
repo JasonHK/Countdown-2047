@@ -1,9 +1,0 @@
-{
-    "recommendations": [
-        "dbaeumer.vscode-eslint",
-        "formulahendry.auto-close-tag",
-        "formulahendry.auto-rename-tag",
-        "mrmlnc.vscode-scss",
-        "shinnn.stylelint",
-    ]
-}
