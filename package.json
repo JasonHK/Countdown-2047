@@ -27,7 +27,7 @@
     "deploy": "npm run build:prod",
     "deploy:gh-pages": "git subtree split --prefix dist --branch gh-pages-temp && git checkout gh-pages && git merge --commit --no-ff --message=\"Deploy Countdown-2047 to GitHub Pages\" gh-pages-temp && git checkout master",
     "deploy:gh-pages:clear": "git branch -d gh-pages-temp",
-    "deploy:gh-pages:merge": "git checkout gh-pages && git merge --commit --no-ff --message=\"Deploy Countdown-2047 to GitHub Pages\" gh-pages-temp && git checkout master",
+    "deploy:gh-pages:merge": "git checkout gh-pages && git merge --commit --no-ff --message=\"Deploy Countdown-2047 to GitHub Pages\" gh-pages-temp && git merge --no-ff gh-pages-temp && git checkout master",
     "deploy:gh-pages:split": "git subtree split --prefix dist --branch gh-pages-temp"
   },
   "dependencies": {},
