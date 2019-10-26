@@ -2,9 +2,17 @@
 # Project GitIgnore
 #===============================================================================
 
+# Bundle Report
 report.html
+
+# Source Maps
 *.map
+
+# Distribution Directory
 dist/
+
+# Source Directory
+src/
 
 #===============================================================================
 # NodeJS GitIgnore
