@@ -1,7 +1,7 @@
 {
   "name": "countdown-2047",
   "description": "Countdown from now to Jul 1, 2047.",
-  "version": "2019.10.5",
+  "version": "2019.10.26",
   "license": "Unlicense",
   "private": true,
   "author": "Jason Kwok <me@jasonhk.net> (https://jasonhk.net)",
