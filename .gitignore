@@ -8,6 +8,9 @@ report.html
 # Source Maps
 *.map
 
+# Assets Directory
+#assets/
+
 # Distribution Directory
 dist/
 
