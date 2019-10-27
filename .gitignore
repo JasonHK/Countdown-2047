@@ -2,12 +2,20 @@
 # Project GitIgnore
 #===============================================================================
 
-# Distribution directory
+# Bundle Report
+report.html
+
+# Source Maps
+*.map
+
+# Assets Directory
+#assets/
+
+# Distribution Directory
 dist/
 
-# Assets in source directory
-src/*.ico
-src/*.png
+# Source Directory
+src/
 
 #===============================================================================
 # NodeJS GitIgnore
