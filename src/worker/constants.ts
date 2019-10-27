@@ -23,6 +23,7 @@ export const PRECACHE_FILES: string[] = [
     "./icons/icon-256.png",
     "./icons/icon-512.png",
     "./icons/icon-1024.png",
+    "./icons/safari.svg",
 ];
 
 export const LOGGER_BADGE_STYLES: string[] = [
