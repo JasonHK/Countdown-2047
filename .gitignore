@@ -2,9 +2,12 @@
 # Project GitIgnore
 #===============================================================================
 
+# Distribution directory
 dist/
-dist/report.html
-dist/*.map
+
+# Assets in source directory
+src/*.ico
+src/*.png
 
 #===============================================================================
 # NodeJS GitIgnore
