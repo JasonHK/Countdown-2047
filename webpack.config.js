@@ -14,10 +14,10 @@ module.exports = (env, argv) => {
     const config = {
         entry: {
             "2047": [
-                Path.resolve(__dirname, "src/index.ts"),
-                Path.resolve(__dirname, "src/theme/theme.ts"),
+                Path.resolve(__dirname, "src/2047/index.ts"),
+                Path.resolve(__dirname, "src/2047/theme/theme.ts"),
             ],
-            "worker": Path.resolve(__dirname, "src/worker.ts"),
+            "worker": Path.resolve(__dirname, "src/worker/index.ts"),
         },
         output: {
             path: Path.resolve(__dirname, "dist"),
@@ -54,9 +54,9 @@ module.exports = (env, argv) => {
         plugins: [
             new CopyWebpackPlugin([
                 { from: "src/index.html", to: "index.html" },
-                //{ from: "src/worker.js", to: "." },
-                //{ from: "res/logo/favicon.ico", to: "." },
-                //{ from: "res/icon", to: "icon" },
+                { from: "assets/manifest.json", to: "." },
+                { from: "assets/icons/favicon.ico", to: "." },
+                { from: "assets/icons/", to: "icons", ignore: ["*.svg", "favicon.ico"] },
                 //{ from: "res/social", to: "social" },
             ]),
             //new HTMLWebpackPlugin({
