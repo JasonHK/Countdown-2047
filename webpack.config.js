@@ -57,6 +57,7 @@ module.exports = (env, argv) => {
                 { from: "assets/manifest.json", to: "." },
                 { from: "assets/icons/favicon.ico", to: "." },
                 { from: "assets/icons/", to: "icons", ignore: ["*.svg", "favicon.ico"] },
+                { from: "assets/masks/safari.svg", to: "icons" },
                 //{ from: "res/social", to: "social" },
             ]),
             //new HTMLWebpackPlugin({
