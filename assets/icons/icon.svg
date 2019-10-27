@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="64"
+   height="64"
+   viewBox="0 0 16.933332 16.933334"
+   version="1.1"
+   id="svg4656"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   sodipodi:docname="icon.svg"
+   inkscape:export-filename="icon-1024.png"
+   inkscape:export-xdpi="1536"
+   inkscape:export-ydpi="1536">
+  <defs
+     id="defs4650" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="7.9195959"
+     inkscape:cx="7.4808376"
+     inkscape:cy="18.226312"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer5"
+     showgrid="true"
+     inkscape:pagecheckerboard="true"
+     units="px"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:snap-grids="true">
+    <inkscape:grid
+       type="xygrid"
+       id="grid812" />
+    <sodipodi:guide
+       position="8.4666665,0"
+       orientation="1,0"
+       id="guide816"
+       inkscape:locked="false"
+       inkscape:label=""
+       inkscape:color="rgb(255,0,0)" />
+    <sodipodi:guide
+       position="0,8.4666665"
+       orientation="0,1"
+       id="guide818"
+       inkscape:locked="false"
+       inkscape:label=""
+       inkscape:color="rgb(255,0,0)" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata4653">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Background"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-280.06664)"
+     sodipodi:insensitive="true">
+    <rect
+       style="fill:#1a202c;fill-opacity:1;stroke-width:0.01727891"
+       id="rect814"
+       width="16.933332"
+       height="16.933332"
+       x="0"
+       y="280.06662" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer5"
+     inkscape:label="Bottom Right"
+     transform="translate(0,-253.99999)">
+    <path
+       inkscape:connector-curvature="0"
+       id="path828"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50.79999924px;line-height:1.25;font-family:Minecraft;-inkscape-font-specification:Minecraft;letter-spacing:0px;word-spacing:0px;fill:#f7fafc;fill-opacity:1;stroke:none;stroke-width:0.04134114"
+       d="M 12.964583,262.99583 H 8.9958331 v 1.5875 h 0.79375 v -0.79375 h 2.3812499 v 1.5875 h 0.79375 z m -1.5875,3.175 h 0.79375 v -0.79375 h -0.79375 z m -0.79375,0 v 2.38125 h 0.79375 v -2.38125 z" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer4"
+     inkscape:label="Bottom Left"
+     transform="translate(0,-253.99999)">
+    <path
+       inkscape:connector-curvature="0"
+       id="path826"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50.79999924px;line-height:1.25;font-family:Minecraft;-inkscape-font-specification:Minecraft;letter-spacing:0px;word-spacing:0px;fill:#f7fafc;fill-opacity:1;stroke:none;stroke-width:0.04134114"
+       d="m 7.9374998,262.99583 h -1.5875 v 0.79375 h 0.79375 v 2.38125 h -2.38125 v -0.79375 h -0.79375 v 1.5875 h 3.175 v 1.5875 h 0.79375 z m -1.5875,0.79375 h -0.79375 v 0.79375 h 0.79375 z m -0.79375,0.79375 h -0.79375 v 0.79375 h 0.79375 z" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="Top Right"
+     transform="translate(0,-253.99999)">
+    <path
+       inkscape:connector-curvature="0"
+       id="path824"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50.79999924px;line-height:1.25;font-family:Minecraft;-inkscape-font-specification:Minecraft;letter-spacing:0px;word-spacing:0px;fill:#f7fafc;fill-opacity:1;stroke:none;stroke-width:0.04134112"
+       d="m 9.7895831,257.17499 h 2.3812479 v -0.79375 H 9.7895831 Z m 0.7937539,3.175 v -0.79375 H 9.7895831 v -2.38125 h -0.793747 v 3.96875 h 0.793747 v -0.79375 z m 1.587494,-3.175 v 0.79375 h -0.793747 v 0.79375 h 0.793747 v 2.38125 h 0.793754 v -3.96875 z m -1.587494,2.38125 h 0.793747 v -0.79375 h -0.793747 z m 1.587494,1.5875 H 9.7895831 v 0.79375 h 2.3812479 z" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Top Left"
+     transform="translate(0,-253.99999)">
+    <path
+       inkscape:connector-curvature="0"
+       id="path822"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50.79999924px;line-height:1.25;font-family:Minecraft;-inkscape-font-specification:Minecraft;letter-spacing:0px;word-spacing:0px;fill:#f7fafc;fill-opacity:1;stroke:none;stroke-width:0.04134114"
+       d="m 7.1437519,256.38124 h -2.381252 v 0.79375 h 2.381252 z m -3.175003,1.5875 h 0.793751 v -0.79375 h -0.793751 z m 3.175003,-0.79375 v 1.5875 h 0.793749 v -1.5875 z m -1.587502,1.5875 v 0.79375 h 1.587502 v -0.79375 z m -0.79375,1.5875 h 0.79375 v -0.79375 h -0.79375 z m -0.793751,0 v 1.5875 h 3.968752 v -1.5875 h -0.793749 v 0.79375 h -2.381252 v -0.79375 z" />
+  </g>
+</svg>
