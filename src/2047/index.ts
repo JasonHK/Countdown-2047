@@ -5,6 +5,8 @@ import SnackBar from "node-snackbar";
 
 import { COUNTER_SELECTORS, ELEMENT_SELECTORS, EXPIRY_TIME, MESSAGE_RECORDS, SUBTITLE_RECORDS } from "./constants";
 
+import { LoggerBadge } from "./badges/logger-badge";
+
 import { CountdownTimer } from "./core/countdown-timer";
 import { CounterContainer } from "./core/counter-container";
 import { TimerContainer } from "./core/timer-container";
@@ -30,46 +32,7 @@ const container: TimerContainer = new TimerContainer.Builder()
 
 const countdown: CountdownTimer = new CountdownTimer(Moment(EXPIRY_TIME));
 
-let duration: Duration = countdown.getDuration();
-container.updateTimer(duration);
-
-if (isCountdownEnded(duration))
-{
-    invadedByChiNazi();
-}
-else
-{
-    const interval: number = window.setInterval(() => {
-        duration = countdown.getDuration();
-        container.updateTimer(duration);
-    
-        if (isCountdownEnded(duration))
-        {
-            window.clearInterval(interval);
-            invadedByChiNazi();
-        }
-        else if (duration.years() < 1)
-        {
-            updateInnerText(subtitle, SUBTITLE_RECORDS.ONE_YEAR_LEFT);
-        }
-        else if (duration.years() < 5)
-        {
-            updateInnerText(subtitle, SUBTITLE_RECORDS.FIVE_YEARS_LEFT);
-        }
-        else if (duration.years() < 10)
-        {
-            updateInnerText(subtitle, SUBTITLE_RECORDS.TEN_YEARS_LEFT);
-        }
-    }, 1000);
-}
-
-function invadedByChiNazi(): void
-{
-    document.body.classList.add("chinazi");
-
-    updateInnerText(subtitle, SUBTITLE_RECORDS.VANISHED);
-    updateInnerText(message, MESSAGE_RECORDS.VANISHED);
-}
+updateTimer();
 
 if (Reflect.has(navigator, "serviceWorker"))
 {
@@ -95,4 +58,41 @@ if (Reflect.has(navigator, "serviceWorker"))
                 }
             });
     });
+}
+
+function invadedByChiNazi(): void
+{
+    document.body.classList.add("chinazi");
+
+    updateInnerText(subtitle, SUBTITLE_RECORDS.VANISHED);
+    updateInnerText(message, MESSAGE_RECORDS.VANISHED);
+}
+
+function updateTimer(): void
+{
+    const duration: Duration = countdown.getDuration();
+    container.updateTimer(duration);
+
+    if (isCountdownEnded(duration))
+    {
+        invadedByChiNazi();
+    }
+    else
+    {
+        const timeout: number = duration.milliseconds() + 100;
+        window.setTimeout(updateTimer, timeout);
+
+        if (duration.years() < 1)
+        {
+            updateInnerText(subtitle, SUBTITLE_RECORDS.ONE_YEAR_LEFT);
+        }
+        else if (duration.years() < 5)
+        {
+            updateInnerText(subtitle, SUBTITLE_RECORDS.FIVE_YEARS_LEFT);
+        }
+        else if (duration.years() < 10)
+        {
+            updateInnerText(subtitle, SUBTITLE_RECORDS.TEN_YEARS_LEFT);
+        }
+    }
 }
