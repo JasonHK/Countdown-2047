@@ -31,7 +31,7 @@ export class TimerContainer
         this._days.value = duration.days();
         this._hours.value = duration.hours();
         this._minutes.value = duration.minutes();
-        this._seconds.value = duration.seconds();
+        this._seconds.value = duration.seconds() + ((duration.milliseconds() === 0) ? 0 : 1);
     }
 }
 
