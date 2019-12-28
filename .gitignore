@@ -1,17 +1,17 @@
 #===============================================================================
-# Project GitIgnore
+# Repository
 #===============================================================================
 
-# Files in distribution directory
-dist/report.html
-dist/*.map
+# Distribution Files
+/dist/report.html
+/dist/*.map
 
-# Assets in source directory
-src/*.ico
-src/*.png
+# Source Code
+/src/*.ico
+/src/*.png
 
 #===============================================================================
-# NodeJS GitIgnore
+# Node.js
 #===============================================================================
 
 # Logs
