@@ -5,17 +5,15 @@ import { CACHE_NAME } from "../constants";
 import { LoggerBadge } from "../badges/logger-badge";
 
 import { getErrorMessage } from "../utilities/get-error-message";
+import { isSameScope } from "../utilities/is-same-scope";
 
-export function updateCache(request: Request)
+export async function updateCache(request: Request, response?: Response): Promise<void>
 {
-    return caches.open(CACHE_NAME)
-        .then((cache) => {
-            return fetch(request)
-                .then((response) => {
-                    return cache.put(request, response)
-                        .catch((error) => {
-                            console.error(...LoggerBadge, getErrorMessage(error, "Failed to store the response."));
-                        });
-                })
-        });
+    if (isSameScope(request.url))
+    {
+        response = response ? response : (await fetch(request));
+
+        const cache: Cache = await caches.open(CACHE_NAME);
+        return cache.put(request, response);
+    }
 }
