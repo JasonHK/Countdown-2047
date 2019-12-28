@@ -1,9 +1,9 @@
 {
   "name": "countdown-2047",
   "description": "Countdown from now to July 1st 2047, the day when hong kong totally vanished.",
+  "private": true,
   "version": "2019.10.28",
   "license": "Unlicense",
-  "private": true,
   "author": "Jason Kwok <me@jasonhk.net> (https://jasonhk.net)",
   "homepage": "https://github.com/JasonHK/Countdown-2047#readme",
   "keywords": [
@@ -18,18 +18,12 @@
   },
   "scripts": {
     "start": "npx ws --port 2047 --directory dist --open",
-    "start:dev": "npx webpack-dev-server",
+    "start:development": "npx webpack-dev-server",
     "watch": "npx npm-watch",
-    "build": "npm run build:dev",
-    "build:dev": "npx webpack --mode development",
-    "build:prod": "npx webpack --mode production",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "npm run build:prod",
-    "deploy:gh-pages": "npm run deploy:gh-pages:split && npm run deploy:gh-pages:merge && npm run deploy:gh-pages:push",
-    "deploy:gh-pages:clear": "git checkout gh-pages && git branch --delete gh-pages-temp && git checkout master",
-    "deploy:gh-pages:merge": "git checkout gh-pages && git merge --commit --strategy=recursive --strategy-option=theirs --message=\"Deploy Countdown-2047 to GitHub Pages\" gh-pages-temp && git checkout master",
-    "deploy:gh-pages:push": "git checkout gh-pages && git push && git checkout master",
-    "deploy:gh-pages:split": "git subtree split --prefix dist --branch gh-pages-temp"
+    "build": "npm run build:production",
+    "build:development": "npx webpack --mode development",
+    "build:production": "npx webpack --mode production"
   },
   "dependencies": {},
   "devDependencies": {
