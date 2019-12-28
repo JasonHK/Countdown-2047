@@ -46,37 +46,37 @@ export namespace TimerContainer
         private _seconds: CounterContainer;
         private _years: CounterContainer;
 
-        public setDays(days: CounterContainer): Builder
+        public setDays(days: CounterContainer): this
         {
             this._days = days;
             return this;
         }
 
-        public setHours(hours: CounterContainer): Builder
+        public setHours(hours: CounterContainer): this
         {
             this._hours = hours;
             return this;
         }
 
-        public setMinutes(minutes: CounterContainer): Builder
+        public setMinutes(minutes: CounterContainer): this
         {
             this._minutes = minutes;
             return this;
         }
 
-        public setMonths(months: CounterContainer): Builder
+        public setMonths(months: CounterContainer): this
         {
             this._months = months;
             return this;
         }
 
-        public setSeconds(seconds: CounterContainer): Builder
+        public setSeconds(seconds: CounterContainer): this
         {
             this._seconds = seconds;
             return this;
         }
 
-        public setYears(years: CounterContainer): Builder
+        public setYears(years: CounterContainer): this
         {
             this._years = years;
             return this;

@@ -1,5 +1,7 @@
 "use strict";
 
+/// <reference lib="WebWorker" />
+
 import { fetchResponse } from "./fetch-response";
 
 import { LoggerBadge } from "./badges/logger-badge";
