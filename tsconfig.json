@@ -1,35 +1,3 @@
 {
-    "compilerOptions": {
-        "target": "esnext",
-        "module": "commonjs",
-        "moduleResolution": "node",
-        "baseUrl": ".",
-        "rootDir": "src",
-        "outDir": "dist",
-        "lib": [
-            "dom",
-            "webworker",
-        ],
-        "paths": {
-            "*": [
-                "*",
-                "node_modules/*",
-                "src/types/*"
-            ],
-        },
-        "allowJs": true,
-        "allowSyntheticDefaultImports": true,
-        "esModuleInterop": true,
-        "noImplicitReturns": true,
-        "noImplicitThis": true,
-        "sourceMap": true,
-    },
-    "files": [
-        "src/2047/index.ts",
-        "src/worker/index.ts",
-    ],
-    "include": [
-        "src/**/*"
-    ],
-    "exclude": [],
+    "extends": "./configs/tsconfig.build.json",
 }
