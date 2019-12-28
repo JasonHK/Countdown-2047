@@ -1,0 +1,16 @@
+{
+    "extends": "./tsconfig.build.json",
+    "compilerOptions": {
+        "lib": [
+            "dom",
+        ],
+    },
+    "files": [
+        "../src/2047/index.ts",
+    ],
+    "include": [
+        "../src/2047/**/*.ts",
+        "../src/shared/**/*.ts",
+    ],
+    "exclude": [],
+}

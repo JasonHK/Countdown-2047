@@ -1,0 +1,5 @@
+{
+    "$schema": "../node_modules/intern/schemas/config.json",
+    "lugins": "node_modules/ts-node/register/index.js",
+    "suites": "tests/unit/**/*.test.ts"
+}

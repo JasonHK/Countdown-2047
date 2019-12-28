@@ -4,10 +4,6 @@
         "module": "commonjs",
         "moduleResolution": "node",
         "baseUrl": "../",
-        "lib": [
-            "dom",
-            "webworker",
-        ],
         "paths": {
             "*": [
                 "node_modules/*",

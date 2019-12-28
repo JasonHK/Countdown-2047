@@ -1,0 +1,16 @@
+{
+    "extends": "./tsconfig.build.json",
+    "compilerOptions": {
+        "lib": [
+            "webworker",
+        ],
+    },
+    "files": [
+        "../src/worker/index.ts",
+    ],
+    "include": [
+        "../src/worker/**/*.ts",
+        "../src/shared/**/*.ts",
+    ],
+    "exclude": [],
+}

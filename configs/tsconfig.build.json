@@ -1,15 +1,7 @@
 {
     "extends": "./tsconfig.json",
     "compilerOptions": {
-        "sourceRoot": "../src",
+        "rootDir": "../src",
         "sourceMap": true,
     },
-    "files": [
-        "../src/2047/index.ts",
-        "../src/worker/index.ts",
-    ],
-    "include": [
-        "../src/**/*.ts",
-    ],
-    "exclude": [],
 }
