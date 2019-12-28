@@ -14,13 +14,13 @@ module.exports = (env, argv) => {
     const config = {
         entry: {
             "2047": [
-                Path.resolve(__dirname, "src/2047/index.ts"),
-                Path.resolve(__dirname, "src/2047/theme/theme.ts"),
+                Path.resolve(__dirname, "../src/2047/index.ts"),
+                Path.resolve(__dirname, "../src/2047/theme/theme.ts"),
             ],
-            "worker": Path.resolve(__dirname, "src/worker/index.ts"),
+            "worker": Path.resolve(__dirname, "../src/worker/index.ts"),
         },
         output: {
-            path: Path.resolve(__dirname, "dist"),
+            path: Path.resolve(__dirname, "../dist"),
             filename: "[name].js",
         },
         module: {
@@ -102,7 +102,7 @@ module.exports = (env, argv) => {
         watch: false,
         devtool: "",
         devServer: {
-            contentBase: Path.resolve(__dirname, "dist"),
+            contentBase: Path.resolve(__dirname, "../dist"),
             //host: "0.0.0.0",
             inline: true,
             port: 2047,
