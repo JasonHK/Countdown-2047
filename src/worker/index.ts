@@ -15,15 +15,15 @@ WorkboxCore.setCacheNameDetails(
 
 WorkboxPrecaching.precache(
     [
-        "/",
-        "/index.html",
-        "/favicon.ico",
-        "/manifest.json",
-        "/2047.js",
-        "/2047.css",
-        "/icons/favicon-32.png",
-        "/icons/icon-192.png",
-        "/icons/icon-512.png",
+        "./",
+        "./index.html",
+        "./favicon.ico",
+        "./manifest.json",
+        "./2047.js",
+        "./2047.css",
+        "./icons/favicon-32.png",
+        "./icons/icon-192.png",
+        "./icons/icon-512.png",
     ]);
 
 const strategy = new WorkboxStrategies.StaleWhileRevalidate();
