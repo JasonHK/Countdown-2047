@@ -6,15 +6,10 @@ import * as WorkboxWindow from "workbox-window";
 
 import { COUNTER_SELECTORS, ELEMENT_SELECTORS, EXPIRY_TIME, MESSAGE_RECORDS, SUBTITLE_RECORDS } from "./constants";
 
-import { LoggerBadge } from "./badges/logger-badge";
-
 import { CountdownTimer } from "./core/countdown-timer";
 import { CounterContainer } from "./core/counter-container";
 import { TimerContainer } from "./core/timer-container";
 
-import { ServiceWorkerEvent } from "./interfaces/service-worker-event";
-
-import { getServiceWorker } from "./utilities/get-service-worker";
 import { isCountdownEnded } from "./utilities/is-countdown-ended";
 import { updateInnerHTML } from "./utilities/update-inner-html";
 import { updateInnerText } from "./utilities/update-inner-text";
