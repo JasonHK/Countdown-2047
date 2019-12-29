@@ -8,7 +8,7 @@ export class CountdownTimer
 
     public get expiry(): Moment.Moment { return this._expiry; }
 
-    constructor(expiry: Moment.Moment)
+    public constructor(expiry: Moment.Moment)
     {
         this._expiry = expiry;
     }

@@ -25,18 +25,21 @@ describe(
             ]);
     });
 
-function executeTest(expected: boolean, durations: TestCase[]): void
+function executeTest(expected: boolean, testCases: TestCase.isCountdownEnded[]): void
 {
     it(
         `should return ${ String(expected) }`,
         () =>
         {
-            for (const duration of durations)
+            for (const testCase of testCases)
             {
-                expect(isCountdownEnded(Moment.duration(...duration)))
+                expect(isCountdownEnded(Moment.duration(...testCase)))
                     .toBe(expected);
             }
         });
 }
 
-type TestCase = [Moment.DurationInputArg1, Moment.DurationInputArg2?];
+namespace TestCase
+{
+    export type isCountdownEnded = [Moment.DurationInputArg1, Moment.DurationInputArg2?];
+}
