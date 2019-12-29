@@ -104,6 +104,8 @@ describe(
                             "should return a Moment.Duration",
                             () =>
                             {
+                                MockedMoment.mockClear();
+
                                 for (const testCase of COUNTDOWN_TIMER.GET_DURATION.TEST_CASES)
                                 {
                                     MockedMoment.mockReturnValueOnce(testCase[0]);
@@ -114,6 +116,9 @@ describe(
                                     expect(duration.asMilliseconds())
                                         .toBe(testCase[1].asMilliseconds());
                                 }
+
+                                expect(MockedMoment)
+                                    .toBeCalledTimes(COUNTDOWN_TIMER.GET_DURATION.TEST_CASES.length);
                             });
                     });
 
@@ -125,6 +130,8 @@ describe(
                             "should return a Moment.Duration",
                             () =>
                             {
+                                MockedMoment.mockClear();
+
                                 for (const testCase of COUNTDOWN_TIMER.GET_DURATION.TEST_CASES)
                                 {
                                     const duration = instance.getDuration(testCase[0]);
@@ -134,6 +141,9 @@ describe(
                                     expect(duration.asMilliseconds())
                                         .toBe(testCase[1].asMilliseconds());
                                 }
+
+                                expect(MockedMoment)
+                                    .toBeCalledTimes(0);
                             });
                     });
             });
