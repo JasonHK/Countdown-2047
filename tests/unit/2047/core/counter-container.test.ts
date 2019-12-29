@@ -8,6 +8,8 @@ let figcaption: HTMLElement;
 let figure: HTMLElement;
 let span: HTMLSpanElement;
 
+let container: CounterContainer;
+
 beforeAll(
     () =>
     {
@@ -29,11 +31,15 @@ beforeEach(
     {
         span.innerText = "-";
         figcaption.innerText = "SECONDS";
+
+        container = new CounterContainer(FIGURE_SELECTOR);
     });
 
 afterAll(
     () =>
     {
+        container = null;
+
         span.remove();
         span = null;
 
@@ -77,6 +83,32 @@ describe(
 
                         tmp.remove();
                         tmp = null;
+                    });
+            });
+
+        describe(
+            "#unitContainer: HTMLElement",
+            () =>
+            {
+                it(
+                    "should return a HTMLElement",
+                    () =>
+                    {
+                        expect(container.unitContainer)
+                            .toEqual(figcaption);
+                    });
+            });
+
+        describe(
+            "#valueContainer: HTMLElement",
+            () =>
+            {
+                it(
+                    "should return a HTMLElement",
+                    () =>
+                    {
+                        expect(container.valueContainer)
+                            .toEqual(span);
                     });
             });
     });
