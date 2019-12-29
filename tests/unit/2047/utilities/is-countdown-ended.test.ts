@@ -8,7 +8,7 @@ describe(
     "isCountdownEnded(duration: Duration): boolean",
     () =>
     {
-        executeTest(
+        executeIsCountdownEndedTest(
             true,
             [
                 [0.999, "s"],
@@ -17,7 +17,7 @@ describe(
                 [-2, "s"],
             ]);
 
-        executeTest(
+        executeIsCountdownEndedTest(
             false,
             [
                 [2, "s"],
@@ -25,7 +25,7 @@ describe(
             ]);
     });
 
-function executeTest(expected: boolean, testCases: TestCase.isCountdownEnded[]): void
+function executeIsCountdownEndedTest(expected: boolean, testCases: TestCase.isCountdownEnded[]): void
 {
     it(
         `should return ${ String(expected) }`,
