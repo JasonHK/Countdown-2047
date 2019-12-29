@@ -2,6 +2,7 @@
 
 import Moment from "moment-mini";
 import SnackBar from "node-snackbar";
+import * as WorkboxWindow from "workbox-window";
 
 import { COUNTER_SELECTORS, ELEMENT_SELECTORS, EXPIRY_TIME, MESSAGE_RECORDS, SUBTITLE_RECORDS } from "./constants";
 
@@ -37,37 +38,30 @@ updateTimer();
 
 if (Reflect.has(navigator, "serviceWorker"))
 {
-    window.addEventListener(
-        "load",
-        () =>
+    const workbox = new WorkboxWindow.Workbox(
+        "./worker.js",
         {
-            navigator.serviceWorker
-                .register("./worker.js", { scope: "./" })
-                .then(
-                    (registration) =>
-                    {
-                        const worker: ServiceWorker = getServiceWorker(registration);
-                        if (worker)
-                        {
-                            worker.addEventListener(
-                                "statechange",
-                                (event: ServiceWorkerEvent) =>
-                                {
-                                    if (event.target.state === "installed")
-                                    {
-                                        SnackBar.show(
-                                            {
-                                                duration: 10000,
-                                                pos: "bottom-right",
-                                                text: "The application is ready for use offline.",
-                                                showAction: true,
-                                                actionTextColor: "#FC9402",
-                                            });
-                                    }
-                                });
-                        }
-                    });
+            scope: "./",
         });
+
+    workbox.addEventListener(
+        "installed",
+        (event) =>
+        {
+            if (event.isUpdate !== true)
+            {
+                SnackBar.show(
+                    {
+                        duration: 10000,
+                        pos: "bottom-right",
+                        text: "The application is ready for use offline.",
+                        showAction: true,
+                        actionTextColor: "#FC9402",
+                    });
+            }
+        });
+
+    workbox.register();
 }
 
 function invadedByChiNazi(): void
