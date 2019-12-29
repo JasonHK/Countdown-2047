@@ -35,7 +35,8 @@
             ],
             "coveragePathIgnorePatterns": [
                 "/node_modules/",
-                "src/worker/"
+                "/src/worker/",
+                "/src/2047/theme/"
             ],
             "globals": {
                 "ts-jest": {
@@ -61,7 +62,7 @@
             ],
             "coveragePathIgnorePatterns": [
                 "/node_modules/",
-                "src/2047/"
+                "/src/2047/"
             ],
             "globals": {
                 "ts-jest": {
