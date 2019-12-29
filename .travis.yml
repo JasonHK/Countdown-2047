@@ -14,15 +14,15 @@ script:
 after_success:
     - npx codecov
 
-# before_deploy:
-#     - npm run build:typedoc
+before_deploy:
+    - npm run build:prod
 
-# deploy:
-#     edge: true
-#     provider: pages
-#     token: $GITHUB_DEPLOY_TOKEN
-#     local_dir: docs
-#     cleanup: false
-#     on:
-#         node_js: 13
-#         branch: master
+deploy:
+    edge: true
+    provider: pages
+    token: $GITHUB_DEPLOY_TOKEN
+    local_dir: dist
+    cleanup: false
+    on:
+        node_js: 13
+        branch: master
