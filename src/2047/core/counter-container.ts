@@ -17,7 +17,7 @@ export class CounterContainer
 
     public get valueContainer(): HTMLElement { return this._valueContainer; }
 
-    constructor(selector: string)
+    public constructor(selector: string)
     {
         const element: Element = document.querySelector(selector);
         if (isHTMLElement(element))
