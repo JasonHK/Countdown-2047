@@ -1,23 +1,38 @@
 "use strict";
 
-/// <reference lib="WebWorker" />
+import * as WorkboxCore from "workbox-core";
+import * as WorkboxPrecaching from "workbox-precaching";
+import * as WorkboxRouting from "workbox-routing";
+import * as WorkboxStrategies from "workbox-strategies";
 
-import { fetchResponse } from "./fetch-response";
+WorkboxCore.setCacheNameDetails(
+    {
+        prefix: "Countdown2047",
+        suffix: "2019.12.30",
+        precache: "Precache",
+        runtime: "Runtime",
+    });
 
-import { LoggerBadge } from "./badges/logger-badge";
+WorkboxPrecaching.precache(
+    [
+        "/",
+        "/index.html",
+        "/favicon.ico",
+        "/manifest.json",
+        "/2047.js",
+        "/2047.css",
+        "/icons/favicon-32.png",
+        "/icons/icon-192.png",
+        "/icons/icon-512.png",
+    ]);
 
-import { fromCache } from "./core/from-cache";
-import { fromNetwork } from "./core/from-network";
-import { precache } from "./core/precache";
-import { updateCache } from "./core/update-cache";
+const strategy = new WorkboxStrategies.StaleWhileRevalidate();
 
-import { getErrorMessage } from "./utilities/get-error-message";
-import { isSameScope } from "./utilities/is-same-scope";
-
-self.addEventListener("install", (event: ExtendableEvent) => {
-    event.waitUntil(precache());
-});
-
-self.addEventListener("fetch", (event: FetchEvent) => {
-    event.respondWith(fetchResponse(event.request));
-});
+WorkboxRouting.registerRoute("/", strategy);
+WorkboxRouting.registerRoute("/index.html", strategy);
+WorkboxRouting.registerRoute("/favicon.ico", strategy);
+WorkboxRouting.registerRoute("/manifest.json", strategy);
+WorkboxRouting.registerRoute(new RegExp("/[^/]*\\.js", "i"), strategy);
+WorkboxRouting.registerRoute(new RegExp("/[^/]*\\.css", "i"), strategy);
+WorkboxRouting.registerRoute(new RegExp("/icons/[^/]*\\.(png|svg)", "i"), strategy);
+WorkboxRouting.registerRoute(new RegExp("/fonts/[^/]*\\.(ttf|woff2)", "i"), strategy);

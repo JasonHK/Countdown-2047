@@ -6,6 +6,7 @@ import CopyWebpackPlugin from "copy-webpack-plugin";
 import FileLoader from "file-loader";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import Path from "path";
+import TerserWebpackPlugin from "terser-webpack-plugin";
 import TSLoader from "ts-loader";
 import Webpack from "webpack";
 import WebpackBundleAnalyzer from "webpack-bundle-analyzer";
@@ -42,7 +43,7 @@ function ConfigurationFactory(env: string | Record<string, string | number | boo
             filename: "[name].js",
         },
         resolve: {
-            extensions: [".js", ".ts", ".tsx"],
+            extensions: [".ts", ".tsx", ".ejs", ".mjs", ".js"],
         },
         module: {
             rules: [
@@ -97,6 +98,10 @@ function ConfigurationFactory(env: string | Record<string, string | number | boo
             ],
         },
         plugins: [
+            new Webpack.DefinePlugin(
+                {
+                    "process.env.NODE_ENV": JSON.stringify("production"),
+                }),
             new CopyWebpackPlugin(
                 [
                     { from: "src/index.html", to: "index.html" },
@@ -114,6 +119,14 @@ function ConfigurationFactory(env: string | Record<string, string | number | boo
                     filename: "[name].css",
                 }),
         ],
+        optimization: {
+            minimizer: [
+                new TerserWebpackPlugin(
+                    {
+                        test: /\.m?js$/i,
+                    }),
+            ],
+        },
         watch: enableWatch,
         devServer: {
             //host: "0.0.0.0",
