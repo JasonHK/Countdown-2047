@@ -57,6 +57,12 @@ beforeEach(
         countdown = new CountdownTimer(EXPIRY_TIME);
     });
 
+afterEach(
+    () =>
+    {
+        MockedMoment.mockClear();
+    });
+
 afterAll(
     () =>
     {
@@ -111,8 +117,6 @@ describe(
                             "should return a Moment.Duration",
                             () =>
                             {
-                                MockedMoment.mockClear();
-
                                 for (const testCase of COUNTDOWN_TIMER.GET_DURATION.TEST_CASES)
                                 {
                                     MockedMoment.mockReturnValueOnce(testCase[0]);
@@ -137,8 +141,6 @@ describe(
                             "should return a Moment.Duration",
                             () =>
                             {
-                                MockedMoment.mockClear();
-
                                 for (const testCase of COUNTDOWN_TIMER.GET_DURATION.TEST_CASES)
                                 {
                                     const duration = countdown.getDuration(testCase[0]);
