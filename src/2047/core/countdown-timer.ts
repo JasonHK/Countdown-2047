@@ -1,17 +1,17 @@
 "use strict";
 
-import Moment, { Duration, Moment as MomentInstance } from "moment-mini";
+import Moment from "moment-mini";
 
 export class CountdownTimer
 {
-    private readonly _expiry: MomentInstance;
+    private readonly _expiry: Moment.Moment;
 
-    constructor(expiry: MomentInstance)
+    constructor(expiry: Moment.Moment)
     {
         this._expiry = expiry;
     }
 
-    public getDuration(moment?: MomentInstance): Duration
+    public getDuration(moment?: Moment.Moment): Moment.Duration
     {
         moment = Moment.isMoment(moment) ? moment : Moment();
         return Moment.duration(moment.isBefore(this._expiry) ? this._expiry.diff(moment) : 0);

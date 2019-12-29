@@ -1,6 +1,6 @@
 "use strict";
 
-import { Duration } from "moment-mini";
+import Moment from "moment-mini";
 
 import { CounterContainer } from "./counter-container";
 
@@ -24,7 +24,7 @@ export class TimerContainer
         this._seconds = seconds;
     }
 
-    public updateTimer(duration: Duration): void
+    public updateTimer(duration: Moment.Duration): void
     {
         this._years.value = duration.years();
         this._months.value = duration.months();

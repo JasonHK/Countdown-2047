@@ -1,6 +1,6 @@
 "use strict";
 
-import Moment, { Duration } from "moment-mini";
+import Moment from "moment-mini";
 import SnackBar from "node-snackbar";
 
 import { COUNTER_SELECTORS, ELEMENT_SELECTORS, EXPIRY_TIME, MESSAGE_RECORDS, SUBTITLE_RECORDS } from "./constants";
@@ -79,7 +79,7 @@ function invadedByChiNazi(): void
 
 function updateTimer(): void
 {
-    const duration: Duration = countdown.getDuration();
+    const duration: Moment.Duration = countdown.getDuration();
     container.updateTimer(duration);
 
     if (isCountdownEnded(duration))
