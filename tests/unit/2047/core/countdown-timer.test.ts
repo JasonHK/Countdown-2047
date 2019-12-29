@@ -5,12 +5,12 @@ import { CountdownTimer } from "src/2047/core/countdown-timer";
 import Moment from "moment-mini";
 import { mocked } from "ts-jest/utils";
 
+const EXPIRY_TIME: Moment.Moment = Moment("2020-01-01T00:00:00.000Z");
+
 namespace COUNTDOWN_TIMER
 {
     export namespace GET_DURATION
     {
-        export const EXPIRY: Moment.Moment = Moment("2020-01-01T00:00:00.000Z");
-
         export const TEST_CASES: TestCase.CountdownTimer.getDuration[] = [
             [
                 Moment("2019-12-31T23:59:00.000Z"),
@@ -49,9 +49,19 @@ jest.mock(
 
 const MockedMoment = mocked(Moment);
 
+let countdown: CountdownTimer;
+
+beforeEach(
+    () =>
+    {
+        countdown = new CountdownTimer(EXPIRY_TIME);
+    });
+
 afterAll(
     () =>
     {
+        countdown = null;
+
         MockedMoment.mockRestore();
     });
 
@@ -67,7 +77,7 @@ describe(
                     "should return a CountdownTimer",
                     () =>
                     {
-                        expect(new CountdownTimer(Moment()))
+                        expect(countdown)
                             .toBeInstanceOf(CountdownTimer);
                     });
             });
@@ -80,13 +90,12 @@ describe(
                     "should return a Moment.Moment",
                     () =>
                     {
-                        const moment = Moment();
-                        const expiry = new CountdownTimer(moment).expiry;
+                        const expiry = countdown.expiry;
 
                         expect(Moment.isMoment(expiry))
                             .toBe(true);
                         expect(expiry.valueOf())
-                            .toBe(moment.valueOf());
+                            .toBe(EXPIRY_TIME.valueOf());
                     });
             });
 
@@ -94,8 +103,6 @@ describe(
             "#getDuration(moment?: Moment.Moment): Moment.Duration",
             () =>
             {
-                const instance = new CountdownTimer(COUNTDOWN_TIMER.GET_DURATION.EXPIRY);
-
                 describe(
                     "use the current time",
                     () =>
@@ -109,7 +116,7 @@ describe(
                                 for (const testCase of COUNTDOWN_TIMER.GET_DURATION.TEST_CASES)
                                 {
                                     MockedMoment.mockReturnValueOnce(testCase[0]);
-                                    const duration = instance.getDuration();
+                                    const duration = countdown.getDuration();
 
                                     expect(Moment.isDuration(duration))
                                         .toBe(true);
@@ -134,7 +141,7 @@ describe(
 
                                 for (const testCase of COUNTDOWN_TIMER.GET_DURATION.TEST_CASES)
                                 {
-                                    const duration = instance.getDuration(testCase[0]);
+                                    const duration = countdown.getDuration(testCase[0]);
 
                                     expect(Moment.isDuration(duration))
                                         .toBe(true);

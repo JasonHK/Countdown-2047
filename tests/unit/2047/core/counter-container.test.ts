@@ -62,7 +62,7 @@ describe(
                     "should return a CounterContainer",
                     () =>
                     {
-                        expect(new CounterContainer(FIGURE_SELECTOR))
+                        expect(container)
                             .toBeInstanceOf(CounterContainer);
                     });
 
