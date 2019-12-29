@@ -7,7 +7,9 @@
   "author": "Jason Kwok <nodejs@jasonhk.email> (https://jasonhk.net)",
   "homepage": "https://github.com/JasonHK/Countdown-2047#readme",
   "keywords": [
-    "countdown"
+    "countdown",
+    "2047",
+    "countdown-2047"
   ],
   "repository": {
     "type": "git",
