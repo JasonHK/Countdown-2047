@@ -6,6 +6,8 @@ export class CountdownTimer
 {
     private readonly _expiry: Moment.Moment;
 
+    public get expiry(): Moment.Moment { return this._expiry; }
+
     constructor(expiry: Moment.Moment)
     {
         this._expiry = expiry;
