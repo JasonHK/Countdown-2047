@@ -28,10 +28,10 @@ WorkboxPrecaching.precache(
 
 const strategy = new WorkboxStrategies.StaleWhileRevalidate();
 
-WorkboxRouting.registerRoute("/", strategy);
-WorkboxRouting.registerRoute("/index.html", strategy);
-WorkboxRouting.registerRoute("/favicon.ico", strategy);
-WorkboxRouting.registerRoute("/manifest.json", strategy);
+WorkboxRouting.registerRoute("./", strategy);
+WorkboxRouting.registerRoute("./index.html", strategy);
+WorkboxRouting.registerRoute("./favicon.ico", strategy);
+WorkboxRouting.registerRoute("./manifest.json", strategy);
 WorkboxRouting.registerRoute(new RegExp("/[^/]*\\.js", "i"), strategy);
 WorkboxRouting.registerRoute(new RegExp("/[^/]*\\.css", "i"), strategy);
 WorkboxRouting.registerRoute(new RegExp("/icons/[^/]*\\.(png|svg)", "i"), strategy);
