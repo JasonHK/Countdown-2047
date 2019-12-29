@@ -60,7 +60,7 @@ describe(
     () =>
     {
         describe(
-            "constructor(expiry: Moment.Moment)",
+            "new CountdownTimer(expiry: Moment.Moment)",
             () =>
             {
                 it(
@@ -73,7 +73,7 @@ describe(
             });
 
         describe(
-            "expiry: Moment.Moment",
+            "#expiry: Moment.Moment",
             () =>
             {
                 it(
@@ -91,7 +91,7 @@ describe(
             });
 
         describe(
-            "getDuration(moment?: Moment.Moment): Moment.Duration",
+            "#getDuration(moment?: Moment.Moment): Moment.Duration",
             () =>
             {
                 const instance = new CountdownTimer(COUNTDOWN_TIMER.GET_DURATION.EXPIRY);

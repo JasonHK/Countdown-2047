@@ -18,10 +18,10 @@ import { isCountdownEnded } from "./utilities/is-countdown-ended";
 import { updateInnerHTML } from "./utilities/update-inner-html";
 import { updateInnerText } from "./utilities/update-inner-text";
 
-const subtitle: HTMLElement = document.querySelector<HTMLElement>(ELEMENT_SELECTORS.SUBTITLE);
-const message: HTMLElement = document.querySelector<HTMLElement>(ELEMENT_SELECTORS.MESSAGE);
+const subtitle: HTMLElement = document.querySelector(ELEMENT_SELECTORS.SUBTITLE);
+const message: HTMLElement = document.querySelector(ELEMENT_SELECTORS.MESSAGE);
 
-const container: TimerContainer = new TimerContainer(
+const container = new TimerContainer(
     {
         days: new CounterContainer(COUNTER_SELECTORS.DAYS),
         hours: new CounterContainer(COUNTER_SELECTORS.HOURS),

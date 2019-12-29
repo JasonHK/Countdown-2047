@@ -7,6 +7,16 @@ export class CounterContainer
     private readonly _unitContainer: HTMLElement;
     private readonly _valueContainer: HTMLElement;
 
+    public get unit(): string { return this.getUnit(); }
+    public set unit(unit: string) { this.setUnit(unit); }
+
+    public get unitContainer(): HTMLElement { return this._unitContainer; }
+
+    public get value(): number { return this.getValue(); }
+    public set value(value: number) { this.setValue(value); }
+
+    public get valueContainer(): HTMLElement { return this._valueContainer; }
+
     constructor(selector: string)
     {
         const element: Element = document.querySelector(selector);
@@ -31,15 +41,29 @@ export class CounterContainer
         }
     }
 
-    public get unit(): string { return this._unitContainer.innerText; }
-    public set unit(unit: string)
+    public getUnit(): string
     {
-        if (unit.trim().toLowerCase() !== this.unit.toLowerCase()) { this._unitContainer.innerText = unit; }
+        return this._unitContainer.innerText;
     }
 
-    public get value(): number { return Number(this._valueContainer.innerText); }
-    public set value(value: number)
+    public getValue(): number
     {
-        if (value !== this.value) { this._valueContainer.innerText = value.toString(); }
+        return Number.parseInt(this._valueContainer.innerText);
+    }
+
+    public setUnit(unit: string): void
+    {
+        if (unit.trim() !== this.unit.trim())
+        {
+            this._unitContainer.innerText = unit;
+        }
+    }
+
+    public setValue(value: number): void
+    {
+        if (value !== this.getValue())
+        {
+            this._valueContainer.innerText = value.toString();
+        }
     }
 }
