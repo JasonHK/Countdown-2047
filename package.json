@@ -4,7 +4,7 @@
   "private": true,
   "version": "2019.12.30",
   "license": "Unlicense",
-  "author": "Jason Kwok <me@jasonhk.net> (https://jasonhk.net)",
+  "author": "Jason Kwok <nodejs@jasonhk.email> (https://jasonhk.net)",
   "homepage": "https://github.com/JasonHK/Countdown-2047#readme",
   "keywords": [
     "countdown"
