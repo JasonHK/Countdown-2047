@@ -24,8 +24,10 @@ function ConfigurationFactory(env: string | Record<string, string | number | boo
     const isProduction: boolean = (argv.mode === "production");
 
     const enableWatch: boolean = false;
-    const enableBundleAnalyzer: boolean = true;
     const enableSourceMap: boolean = true;
+
+    const enableBundleAnalyzer: boolean = true;
+    const openBundleAnalyzerReport: boolean = null;
 
     const configuration: Webpack.Configuration = {
         entry: {
@@ -50,6 +52,7 @@ function ConfigurationFactory(env: string | Record<string, string | number | boo
                         DIRECTORY_SOURCE_2047,
                         DIRECTORY_SOURCE_SHARED,
                     ],
+                    exclude: /node_modules/,
                     loader: "ts-loader",
                     options: {
                         instance: "2047",
@@ -62,6 +65,7 @@ function ConfigurationFactory(env: string | Record<string, string | number | boo
                         DIRECTORY_SOURCE_WORKER,
                         DIRECTORY_SOURCE_SHARED,
                     ],
+                    exclude: /node_modules/,
                     loader: "ts-loader",
                     options: {
                         instance: "worker",
@@ -125,7 +129,7 @@ function ConfigurationFactory(env: string | Record<string, string | number | boo
             new WebpackBundleAnalyzer.BundleAnalyzerPlugin(
                 {
                     analyzerMode: "static",
-                    openAnalyzer: isProduction,
+                    openAnalyzer: (typeof openBundleAnalyzerReport === "boolean") ? openBundleAnalyzerReport : isProduction,
                 }));
     }
 

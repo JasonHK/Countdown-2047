@@ -1,0 +1,12 @@
+{
+    "extends": "./tsconfig.test.json",
+    "compilerOptions": {
+        "lib": [
+            "DOM",
+            "ES2015",
+        ],
+    },
+    "include": [
+        "../tests/unit/worker/**/*.ts",
+    ],
+}

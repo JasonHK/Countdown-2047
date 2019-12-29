@@ -36,28 +36,37 @@ updateTimer();
 
 if (Reflect.has(navigator, "serviceWorker"))
 {
-    window.addEventListener("load", () => {
-        navigator.serviceWorker
-            .register("./worker.js", { scope: "./" })
-            .then((registration) => {
-                const worker: ServiceWorker = getServiceWorker(registration);
-                if (worker)
-                {
-                    worker.addEventListener("statechange", (event: ServiceWorkerEvent) => {
-                        if (event.target.state === "installed")
+    window.addEventListener(
+        "load",
+        () =>
+        {
+            navigator.serviceWorker
+                .register("./worker.js", { scope: "./" })
+                .then(
+                    (registration) =>
+                    {
+                        const worker: ServiceWorker = getServiceWorker(registration);
+                        if (worker)
                         {
-                            SnackBar.show({
-                                duration: 10000,
-                                pos: "bottom-right",
-                                text: "The application is ready for use offline.",
-                                showAction: true,
-                                actionTextColor: "#FC9402",
-                            });
+                            worker.addEventListener(
+                                "statechange",
+                                (event: ServiceWorkerEvent) =>
+                                {
+                                    if (event.target.state === "installed")
+                                    {
+                                        SnackBar.show(
+                                            {
+                                                duration: 10000,
+                                                pos: "bottom-right",
+                                                text: "The application is ready for use offline.",
+                                                showAction: true,
+                                                actionTextColor: "#FC9402",
+                                            });
+                                    }
+                                });
                         }
                     });
-                }
-            });
-    });
+        });
 }
 
 function invadedByChiNazi(): void
