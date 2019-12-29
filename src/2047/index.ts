@@ -21,16 +21,17 @@ import { updateInnerText } from "./utilities/update-inner-text";
 const subtitle: HTMLElement = document.querySelector<HTMLElement>(ELEMENT_SELECTORS.SUBTITLE);
 const message: HTMLElement = document.querySelector<HTMLElement>(ELEMENT_SELECTORS.MESSAGE);
 
-const container: TimerContainer = new TimerContainer.Builder()
-    .setYears(new CounterContainer(COUNTER_SELECTORS.YEARS))
-    .setMonths(new CounterContainer(COUNTER_SELECTORS.MONTHS))
-    .setDays(new CounterContainer(COUNTER_SELECTORS.DAYS))
-    .setHours(new CounterContainer(COUNTER_SELECTORS.HOURS))
-    .setMinutes(new CounterContainer(COUNTER_SELECTORS.MINUTES))
-    .setSeconds(new CounterContainer(COUNTER_SELECTORS.SECONDS))
-    .build();
+const container: TimerContainer = new TimerContainer(
+    {
+        days: new CounterContainer(COUNTER_SELECTORS.DAYS),
+        hours: new CounterContainer(COUNTER_SELECTORS.HOURS),
+        minutes: new CounterContainer(COUNTER_SELECTORS.MINUTES),
+        months: new CounterContainer(COUNTER_SELECTORS.MONTHS),
+        seconds: new CounterContainer(COUNTER_SELECTORS.SECONDS),
+        years: new CounterContainer(COUNTER_SELECTORS.YEARS),
+    });
 
-const countdown: CountdownTimer = new CountdownTimer(Moment(EXPIRY_TIME));
+const countdown = new CountdownTimer(Moment(EXPIRY_TIME));
 
 updateTimer();
 

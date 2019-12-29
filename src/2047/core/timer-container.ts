@@ -2,6 +2,8 @@
 
 import Moment from "moment-mini";
 
+import { TimerContainerConfig } from "../interfaces/timer-container-config";
+
 import { CounterContainer } from "./counter-container";
 
 export class TimerContainer
@@ -13,15 +15,14 @@ export class TimerContainer
     private readonly _seconds: CounterContainer;
     private readonly _years: CounterContainer;
 
-    constructor(years: CounterContainer, months: CounterContainer, days: CounterContainer,
-                hours: CounterContainer, minutes: CounterContainer, seconds: CounterContainer)
+    constructor(config: TimerContainerConfig)
     {
-        this._years = years;
-        this._months = months;
-        this._days = days;
-        this._hours = hours;
-        this._minutes = minutes;
-        this._seconds = seconds;
+        this._years = config.years;
+        this._months = config.months;
+        this._days = config.days;
+        this._hours = config.hours;
+        this._minutes = config.minutes;
+        this._seconds = config.seconds;
     }
 
     public updateTimer(duration: Moment.Duration): void
@@ -32,60 +33,5 @@ export class TimerContainer
         this._hours.value = duration.hours();
         this._minutes.value = duration.minutes();
         this._seconds.value = duration.seconds() + ((duration.milliseconds() === 0) ? 0 : 1);
-    }
-}
-
-export namespace TimerContainer
-{
-    export class Builder
-    {
-        private _days: CounterContainer;
-        private _hours: CounterContainer;
-        private _minutes: CounterContainer;
-        private _months: CounterContainer;
-        private _seconds: CounterContainer;
-        private _years: CounterContainer;
-
-        public setDays(days: CounterContainer): this
-        {
-            this._days = days;
-            return this;
-        }
-
-        public setHours(hours: CounterContainer): this
-        {
-            this._hours = hours;
-            return this;
-        }
-
-        public setMinutes(minutes: CounterContainer): this
-        {
-            this._minutes = minutes;
-            return this;
-        }
-
-        public setMonths(months: CounterContainer): this
-        {
-            this._months = months;
-            return this;
-        }
-
-        public setSeconds(seconds: CounterContainer): this
-        {
-            this._seconds = seconds;
-            return this;
-        }
-
-        public setYears(years: CounterContainer): this
-        {
-            this._years = years;
-            return this;
-        }
-
-        public build(): TimerContainer
-        {
-            return new TimerContainer(this._years, this._months, this._days,
-                                      this._hours, this._minutes, this._seconds);
-        }
     }
 }
