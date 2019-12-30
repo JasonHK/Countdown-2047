@@ -21,12 +21,19 @@ WorkboxPrecaching.precache(
         "./manifest.json",
         "./2047.js",
         "./2047.css",
+        "./icons/favicon-16.png",
         "./icons/favicon-32.png",
         "./icons/icon-192.png",
         "./icons/icon-512.png",
+        "./icons/safari.svg",
     ]);
 
-const strategy = new WorkboxStrategies.StaleWhileRevalidate();
+const strategy = new WorkboxStrategies.StaleWhileRevalidate(
+    {
+        matchOptions: {
+            ignoreSearch: true,
+        },
+    });
 
 WorkboxRouting.registerRoute("./", strategy);
 WorkboxRouting.registerRoute("./index.html", strategy);
