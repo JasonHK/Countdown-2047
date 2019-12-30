@@ -27,11 +27,13 @@ export class TimerContainer
 
     public updateTimer(duration: Moment.Duration): void
     {
+        if (duration.milliseconds() !== 0) { duration.add(1, "second"); }
+
         this._years.value = duration.years();
         this._months.value = duration.months();
         this._days.value = duration.days();
         this._hours.value = duration.hours();
         this._minutes.value = duration.minutes();
-        this._seconds.value = duration.seconds() + ((duration.milliseconds() === 0) ? 0 : 1);
+        this._seconds.value = duration.seconds();
     }
 }
