@@ -59,7 +59,7 @@ if (Reflect.has(navigator, "serviceWorker"))
     workbox.register();
 }
 
-function invadedByChiNazi(): void
+function awSeriously(): void
 {
     document.body.classList.add("aw-seriously");
 
@@ -74,7 +74,7 @@ function updateTimer(): void
 
     if (isCountdownEnded(duration))
     {
-        invadedByChiNazi();
+        awSeriously();
     }
     else
     {
