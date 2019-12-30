@@ -15,10 +15,10 @@
    version="1.1"
    id="svg4656"
    inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
-   sodipodi:docname="icon.svg"
-   inkscape:export-filename="icon-1024.png"
-   inkscape:export-xdpi="1536"
-   inkscape:export-ydpi="1536">
+   sodipodi:docname="icon-64.svg"
+   inkscape:export-filename="icon-64.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96">
   <defs
      id="defs4650" />
   <sodipodi:namedview
@@ -29,10 +29,10 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="7.9195959"
-     inkscape:cx="7.4808376"
-     inkscape:cy="18.226312"
+     inkscape:cx="-20.717971"
+     inkscape:cy="20.736356"
      inkscape:document-units="px"
-     inkscape:current-layer="layer5"
+     inkscape:current-layer="layer1"
      showgrid="true"
      inkscape:pagecheckerboard="true"
      units="px"
@@ -70,7 +70,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -78,8 +78,7 @@
      inkscape:label="Background"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(0,-280.06664)"
-     sodipodi:insensitive="true">
+     transform="translate(0,-280.06664)">
     <rect
        style="fill:#1a202c;fill-opacity:1;stroke-width:0.01727891"
        id="rect814"
