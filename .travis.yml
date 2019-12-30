@@ -21,6 +21,7 @@ deploy:
     edge: true
     provider: pages
     token: $GITHUB_DEPLOY_TOKEN
+    fqdn: 2047.jasonhk.app
     local_dir: dist
     cleanup: false
     on:
