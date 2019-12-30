@@ -61,7 +61,7 @@ if (Reflect.has(navigator, "serviceWorker"))
 
 function invadedByChiNazi(): void
 {
-    document.body.classList.add("chinazi");
+    document.body.classList.add("aw-seriously");
 
     updateInnerText(subtitle, SUBTITLE_RECORDS.VANISHED);
     updateInnerText(message, MESSAGE_RECORDS.VANISHED);
