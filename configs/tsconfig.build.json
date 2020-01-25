@@ -1,7 +1,10 @@
 {
-    "extends": "./tsconfig.json",
+    "extends": "./tsconfig.base.json",
     "compilerOptions": {
+        "target": "ES2015",
         "rootDir": "../src",
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
         "sourceMap": true,
     },
 }

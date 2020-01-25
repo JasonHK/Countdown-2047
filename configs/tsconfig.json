@@ -1,18 +1,3 @@
 {
-    "compilerOptions": {
-        "target": "ESNext",
-        "module": "CommonJS",
-        "moduleResolution": "Node",
-        "baseUrl": "../",
-        "paths": {
-            "*": [
-                "node_modules/*",
-            ],
-        },
-        "allowJs": false,
-        "allowSyntheticDefaultImports": true,
-        "esModuleInterop": true,
-        "noImplicitReturns": true,
-        "noImplicitThis": true,
-    },
+    "extends": "./tsconfig.base.json",
 }
