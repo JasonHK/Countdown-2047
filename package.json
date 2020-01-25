@@ -18,6 +18,9 @@
   "bugs": {
     "url": "https://github.com/JasonHK/Countdown-2047/issues"
   },
+  "engines": {
+    "node": ">= 8.0.0"
+  },
   "scripts": {
     "start": "npx ws --port 2047 --directory dist --open",
     "start:dev": "npx webpack-dev-server --config \"configs/webpack.config.ts\"",
