@@ -22,15 +22,15 @@
     "node": ">= 8.0.0"
   },
   "scripts": {
-    "start": "npx ws --port 2047 --directory dist --open",
-    "start:dev": "npx webpack-dev-server --config \"configs/webpack.config.ts\"",
-    "test": "npx jest --config=\"configs/jest.config.json\"",
-    "test:coverage": "npm run clean:coverage && npx jest --config=\"configs/jest.config.json\" --coverage",
+    "start": "npm run build:prod && npx ws --port 2047 --directory dist --open",
+    "start:dev": "npx webpack-dev-server --config configs/webpack.config.ts",
+    "test": "npx jest --config=configs/jest.config.json",
+    "test:coverage": "npm run clean:coverage && npx jest --config=configs/jest.config.json --coverage",
     "build": "npm run build:deploy",
-    "build:dev": "npm run clean:build && npx webpack --config \"configs/webpack.config.ts\" --mode development",
-    "build:prod": "npm run clean:build && npx webpack --config \"configs/webpack.config.ts\" --mode production",
+    "build:dev": "npm run clean:build && npx webpack --config configs/webpack.config.ts --mode development",
+    "build:prod": "npm run clean:build && npx webpack --config configs/webpack.config.ts --mode production",
     "build:deploy": "npx run-s -ln build:prod clean:build:deploy",
-    "clean": "npx run-p -ln clean:coverage clean:dist",
+    "clean": "npx run-p -ln clean:*",
     "clean:coverage": "npx rimraf -- ./coverage",
     "clean:build": "npx rimraf -- ./dist",
     "clean:build:deploy": "npx rimraf -- ./dist/report.html \"./dist/*.@(css|js).@(LICENSE|map)\""
