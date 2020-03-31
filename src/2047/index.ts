@@ -50,7 +50,7 @@ if (Reflect.has(navigator, "serviceWorker"))
                         duration: 10000,
                         pos: "bottom-right",
                         text: "The application is ready for use offline.",
-                        showAction: true,
+                        showAction: false,
                         actionTextColor: "#FC9402",
                     });
             }
