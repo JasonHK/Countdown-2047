@@ -19,7 +19,7 @@ export class CounterContainer
 
     public constructor(selector: string)
     {
-        const element: Element = document.querySelector(selector);
+        const element = document.querySelector(selector);
         if (isHTMLElement(element))
         {
             const valueContainer = element.querySelector("span");

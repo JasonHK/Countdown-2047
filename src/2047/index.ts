@@ -14,8 +14,8 @@ import { isCountdownEnded } from "./utilities/is-countdown-ended";
 import { updateInnerHTML } from "./utilities/update-inner-html";
 import { updateInnerText } from "./utilities/update-inner-text";
 
-const subtitle: HTMLElement = document.querySelector(ELEMENT_SELECTORS.SUBTITLE);
-const message: HTMLElement = document.querySelector(ELEMENT_SELECTORS.MESSAGE);
+const subtitle = document.querySelector<HTMLElement>(ELEMENT_SELECTORS.SUBTITLE);
+const message = document.querySelector<HTMLElement>(ELEMENT_SELECTORS.MESSAGE);
 
 const container = new TimerContainer(
     {
@@ -69,7 +69,7 @@ function awSeriously(): void
 
 function updateTimer(): void
 {
-    const duration: Moment.Duration = countdown.getDuration();
+    const duration = countdown.getDuration();
     container.updateTimer(duration);
 
     if (isCountdownEnded(duration))
