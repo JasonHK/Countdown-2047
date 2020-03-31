@@ -3,12 +3,8 @@ Countdown-2047
 
 Countdown from now to July 1st 2047, the day when hong kong totally vanished.
 
-<div style="text-align: center">
-
 [![application-badge]][application] ![application-origin-badge] ![uptime-status-badge] <br>
 ![uptime-ratio-badge] [![website-security-badge]][observatory] [![repository-license-badge]][github-license] [![dependency-status-badge]][libraries.io] ![maintenance-state-badge] [![build-status-badge]][travis] [![code-coverage-badge]][codecov]
-
-</div>
 
 <!-- Application -->
 [application]: https://2047.jasonhk.app/
