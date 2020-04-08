@@ -23,6 +23,7 @@ deploy:
     token: $GITHUB_DEPLOY_TOKEN
     fqdn: 2047.jasonhk.app
     local_dir: dist
+    allow_empty_commit: true
     cleanup: false
     on:
         node_js: 13
