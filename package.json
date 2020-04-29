@@ -26,7 +26,7 @@
     "start:dev": "npx webpack-dev-server --config ./configs/webpack.config.ts",
     "start:watch": "npm run start:dev -- --env.watch",
     "test": "npx jest --config=./configs/jest.config.json",
-    "test:coverage": "npm run clean:coverage && npn run test -- --coverage",
+    "test:coverage": "npm run clean:coverage && npm run test -- --coverage",
     "build": "npm run build:deploy",
     "build:dev": "npx webpack --config ./configs/webpack.config.ts",
     "build:watch": "npm run build:dev -- --env.watch",
