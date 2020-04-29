@@ -1,0 +1,18 @@
+{
+    "presets": [
+        "@babel/env",
+        "@babel/typescript"
+    ],
+    "plugins": [
+        [
+            "@babel/plugin-transform-typescript",
+            {
+                "jsxPragma": "h",
+                "allowNamespaces": true,
+                "isTSX": true,
+                "onlyRemoveTypeImports": true
+            }
+        ],
+        "@babel/plugin-proposal-class-properties"
+    ]
+}

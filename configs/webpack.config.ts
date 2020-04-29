@@ -2,21 +2,29 @@
 
 import "webpack-dev-server";
 
+// import BabelLoader from "babel-loader";
 import CopyWebpackPlugin from "copy-webpack-plugin";
 import FileLoader from "file-loader";
+import TSCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 import {
     isBoolean,
     isObject,
 } from "lodash";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import NodeSass from "node-sass";
 import Path from "path";
+import Sass from "sass";
+import SassLoader from "sass-loader";
 import TerserWebpackPlugin from "terser-webpack-plugin";
 import TSLoader from "ts-loader";
-import Webpack from "webpack";
+import Webpack, { DefinePlugin } from "webpack";
 import WebpackBundleAnalyzer from "webpack-bundle-analyzer";
+
+import BabelConfig from "./babel.config.json";
 
 const DIRECTORY_ROOT: string = Path.resolve(__dirname, "../");
 
+const DIRECTORY_CONFIGS: string = Path.resolve(DIRECTORY_ROOT, "./configs");
 const DIRECTORY_DIST: string = Path.resolve(DIRECTORY_ROOT, "./dist");
 
 const DIRECTORY_SRC: string = Path.resolve(DIRECTORY_ROOT, "./src");
@@ -53,17 +61,28 @@ function ConfigurationFactory(env: string | Record<string, string | number | boo
         },
         module: {
             rules: [
+                // {
+                //     test: /\.tsx?$/i,
+                //     include: [
+                //         DIRECTORY_SRC_2047,
+                //     ],
+                //     exclude: /node_modules/,
+                //     loader: "ts-loader",
+                //     options: {
+                //         instance: "2047",
+                //         configFile: Path.resolve(DIRECTORY_SRC_2047, "./tsconfig.json"),
+                //     } as TSLoader.Options,
+                // },
                 {
                     test: /\.tsx?$/i,
                     include: [
                         DIRECTORY_SRC_2047,
                     ],
                     exclude: /node_modules/,
-                    loader: "ts-loader",
+                    loader: "babel-loader",
                     options: {
-                        instance: "2047",
-                        configFile: Path.resolve(DIRECTORY_SRC_2047, "tsconfig.json"),
-                    } as TSLoader.Options,
+                        extends: Path.resolve(DIRECTORY_CONFIGS, "./babel.config.json"),
+                    },
                 },
                 {
                     test: /\.tsx?$/i,
@@ -74,7 +93,7 @@ function ConfigurationFactory(env: string | Record<string, string | number | boo
                     loader: "ts-loader",
                     options: {
                         instance: "worker",
-                        configFile: Path.resolve(DIRECTORY_SRC_WORKER, "tsconfig.json"),
+                        configFile: Path.resolve(DIRECTORY_SRC_WORKER, "./tsconfig.json"),
                     } as TSLoader.Options,
                 },
                 {
@@ -84,7 +103,12 @@ function ConfigurationFactory(env: string | Record<string, string | number | boo
                         "css-loader",
                         "postcss-loader",
                         "resolve-url-loader",
-                        "sass-loader",
+                        {
+                            loader: "sass-loader",
+                            options: {
+                                implementation: NodeSass,
+                            } as SassLoader.Options,
+                        },
                     ],
                 },
                 {
@@ -102,7 +126,14 @@ function ConfigurationFactory(env: string | Record<string, string | number | boo
             ],
         },
         plugins: [
-            new Webpack.DefinePlugin(
+            new TSCheckerWebpackPlugin(
+                {
+                    tsconfig: Path.resolve(DIRECTORY_SRC_2047, "./tsconfig.json"),
+                    reportFiles: [
+                        `${ DIRECTORY_SRC_2047 }/**/*.{ts,tsx}`,
+                    ],
+                }),
+            new DefinePlugin(
                 {
                     "process.env.NODE_ENV": JSON.stringify("production"),
                 }),
