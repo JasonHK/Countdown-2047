@@ -106,7 +106,7 @@ function ConfigurationFactory(env: string | Record<string, string | number | boo
                         {
                             loader: "sass-loader",
                             options: {
-                                implementation: NodeSass,
+                                sourceMap: true,
                             } as SassLoader.Options,
                         },
                     ],
