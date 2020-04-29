@@ -5,17 +5,29 @@ language: node_js
 node_js:
     - 13
 
-before_script:
-    - npm install -g codecov
+before_script: |-4
+    # Script: `before_script`
 
-script:
-    - npm run test:coverage
+    # Codecov
+    npm install -g codecov
 
-after_success:
-    - npx codecov
+script: |-4
+    # Script: `script`
 
-before_deploy:
-    - npm run build:deploy
+    # Tests with coverage report
+    npm run test:coverage
+
+after_success: |-4
+    # Script: `after_success`
+
+    # Codecov
+    npx codecov
+
+before_deploy: |-4
+    # Script: `before_deploy`
+
+    # Build the web app
+    npm run build:deploy
 
 deploy:
     edge: true
