@@ -4,6 +4,10 @@ import "webpack-dev-server";
 
 import CopyWebpackPlugin from "copy-webpack-plugin";
 import FileLoader from "file-loader";
+import {
+    isBoolean,
+    isObject,
+} from "lodash";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import Path from "path";
 import TerserWebpackPlugin from "terser-webpack-plugin";
@@ -13,33 +17,35 @@ import WebpackBundleAnalyzer from "webpack-bundle-analyzer";
 
 const DIRECTORY_ROOT: string = Path.resolve(__dirname, "../");
 
-const DIRECTORY_DISTRIBUTION: string = Path.resolve(DIRECTORY_ROOT, "./dist");
+const DIRECTORY_DIST: string = Path.resolve(DIRECTORY_ROOT, "./dist");
 
-const DIRECTORY_SOURCE: string = Path.resolve(DIRECTORY_ROOT, "./src");
-const DIRECTORY_SOURCE_2047: string = Path.resolve(DIRECTORY_SOURCE, "./2047");
-const DIRECTORY_SOURCE_SHARED: string = Path.resolve(DIRECTORY_SOURCE, "./shared");
-const DIRECTORY_SOURCE_WORKER: string = Path.resolve(DIRECTORY_SOURCE, "./worker");
+const DIRECTORY_SRC: string = Path.resolve(DIRECTORY_ROOT, "./src");
+const DIRECTORY_SRC_2047: string = Path.resolve(DIRECTORY_SRC, "./2047");
+const DIRECTORY_SRC_WORKER: string = Path.resolve(DIRECTORY_SRC, "./worker");
 
-function ConfigurationFactory(env: string | Record<string, string | number | boolean>, argv: Webpack.CliConfigOptions): Webpack.Configuration
+function ConfigurationFactory(env: string | Record<string, string | number | boolean>): Webpack.Configuration
 {
-    const isProduction: boolean = (argv.mode === "production");
+    if (!isObject(env)) { env = {}; }
 
-    const enableWatch: boolean = false;
-    const enableSourceMap: boolean = true;
+    const isProduction: boolean = isBoolean(env.production) ? env.production : false;
 
-    const enableBundleAnalyzer: boolean = true;
-    const openBundleAnalyzerReport: boolean = null;
+    const enableWatch: boolean = isBoolean(env.watch) ? env.watch : false;
+    const enableSourceMap: boolean = isBoolean(env.sourceMap) ? env.sourceMap : !isProduction;
+
+    const enableBundleAnalyzer: boolean = isBoolean(env.analyze) ? env.analyze : !isProduction;
+    const openBundleAnalyzerReport: boolean = isBoolean(env.openReport) ? env.openReport : false;
 
     const configuration: Webpack.Configuration = {
+        mode: isProduction ? "production" : "development",
         entry: {
             "2047": [
-                Path.resolve(DIRECTORY_SOURCE_2047 ,"./index.ts"),
-                Path.resolve(DIRECTORY_SOURCE_2047 ,"./theme/theme.ts"),
+                Path.resolve(DIRECTORY_SRC_2047 ,"./index.ts"),
+                Path.resolve(DIRECTORY_SRC_2047 ,"./theme/theme.ts"),
             ],
-            "worker": Path.resolve(DIRECTORY_SOURCE_WORKER, "./index.ts"),
+            "worker": Path.resolve(DIRECTORY_SRC_WORKER, "./index.ts"),
         },
         output: {
-            path: DIRECTORY_DISTRIBUTION,
+            path: DIRECTORY_DIST,
             filename: "[name].js",
         },
         resolve: {
@@ -50,27 +56,25 @@ function ConfigurationFactory(env: string | Record<string, string | number | boo
                 {
                     test: /\.tsx?$/i,
                     include: [
-                        DIRECTORY_SOURCE_2047,
-                        DIRECTORY_SOURCE_SHARED,
+                        DIRECTORY_SRC_2047,
                     ],
                     exclude: /node_modules/,
                     loader: "ts-loader",
                     options: {
                         instance: "2047",
-                        configFile: Path.resolve(DIRECTORY_SOURCE_2047, "tsconfig.json"),
+                        configFile: Path.resolve(DIRECTORY_SRC_2047, "tsconfig.json"),
                     } as TSLoader.Options,
                 },
                 {
                     test: /\.tsx?$/i,
                     include: [
-                        DIRECTORY_SOURCE_WORKER,
-                        DIRECTORY_SOURCE_SHARED,
+                        DIRECTORY_SRC_WORKER,
                     ],
                     exclude: /node_modules/,
                     loader: "ts-loader",
                     options: {
                         instance: "worker",
-                        configFile: Path.resolve(DIRECTORY_SOURCE_WORKER, "tsconfig.json"),
+                        configFile: Path.resolve(DIRECTORY_SRC_WORKER, "tsconfig.json"),
                     } as TSLoader.Options,
                 },
                 {
@@ -131,24 +135,24 @@ function ConfigurationFactory(env: string | Record<string, string | number | boo
         devServer: {
             //host: "0.0.0.0",
             port: 2047,
-            contentBase: DIRECTORY_DISTRIBUTION,
+            contentBase: DIRECTORY_DIST,
             inline: true,
         },
     };
 
     if (enableBundleAnalyzer)
     {
-        configuration.plugins.push(
+        configuration.plugins!.push(
             new WebpackBundleAnalyzer.BundleAnalyzerPlugin(
                 {
                     analyzerMode: "static",
-                    openAnalyzer: (typeof openBundleAnalyzerReport === "boolean") ? openBundleAnalyzerReport : isProduction,
+                    openAnalyzer: openBundleAnalyzerReport,
                 }));
     }
 
     if (enableSourceMap)
     {
-        configuration.module.rules.push(
+        configuration.module!.rules.push(
             {
                 enforce: "pre",
                 test: /\.js$/i,
