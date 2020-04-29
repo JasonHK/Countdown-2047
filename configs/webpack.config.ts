@@ -2,7 +2,7 @@
 
 import "webpack-dev-server";
 
-// import BabelLoader from "babel-loader";
+import BabelCore from "@babel/core";
 import CopyWebpackPlugin from "copy-webpack-plugin";
 import FileLoader from "file-loader";
 import TSCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
@@ -11,16 +11,11 @@ import {
     isObject,
 } from "lodash";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
-import NodeSass from "node-sass";
 import Path from "path";
-import Sass from "sass";
 import SassLoader from "sass-loader";
 import TerserWebpackPlugin from "terser-webpack-plugin";
-import TSLoader from "ts-loader";
 import Webpack, { DefinePlugin } from "webpack";
 import WebpackBundleAnalyzer from "webpack-bundle-analyzer";
-
-import BabelConfig from "./babel.config.json";
 
 const DIRECTORY_ROOT: string = Path.resolve(__dirname, "../");
 
@@ -61,40 +56,13 @@ function ConfigurationFactory(env: string | Record<string, string | number | boo
         },
         module: {
             rules: [
-                // {
-                //     test: /\.tsx?$/i,
-                //     include: [
-                //         DIRECTORY_SRC_2047,
-                //     ],
-                //     exclude: /node_modules/,
-                //     loader: "ts-loader",
-                //     options: {
-                //         instance: "2047",
-                //         configFile: Path.resolve(DIRECTORY_SRC_2047, "./tsconfig.json"),
-                //     } as TSLoader.Options,
-                // },
                 {
                     test: /\.tsx?$/i,
-                    include: [
-                        DIRECTORY_SRC_2047,
-                    ],
                     exclude: /node_modules/,
                     loader: "babel-loader",
                     options: {
                         extends: Path.resolve(DIRECTORY_CONFIGS, "./babel.config.json"),
-                    },
-                },
-                {
-                    test: /\.tsx?$/i,
-                    include: [
-                        DIRECTORY_SRC_WORKER,
-                    ],
-                    exclude: /node_modules/,
-                    loader: "ts-loader",
-                    options: {
-                        instance: "worker",
-                        configFile: Path.resolve(DIRECTORY_SRC_WORKER, "./tsconfig.json"),
-                    } as TSLoader.Options,
+                    } as BabelCore.TransformOptions,
                 },
                 {
                     test: /\.(c|sa|sc)ss$/i,
@@ -131,6 +99,13 @@ function ConfigurationFactory(env: string | Record<string, string | number | boo
                     tsconfig: Path.resolve(DIRECTORY_SRC_2047, "./tsconfig.json"),
                     reportFiles: [
                         `${ DIRECTORY_SRC_2047 }/**/*.{ts,tsx}`,
+                    ],
+                }),
+            new TSCheckerWebpackPlugin(
+                {
+                    tsconfig: Path.resolve(DIRECTORY_SRC_WORKER, "./tsconfig.json"),
+                    reportFiles: [
+                        `${ DIRECTORY_SRC_WORKER }/**/*.{ts,tsx}`,
                     ],
                 }),
             new DefinePlugin(
