@@ -31,7 +31,7 @@
     "build:dev": "npx webpack --config ./configs/webpack.config.ts",
     "build:watch": "npm run build:dev -- --env.watch",
     "build:prod": "npm run build:dev -- --env.production",
-    "build:deploy": "npx run-s -ln build:prod clean:build:deploy",
+    "build:deploy": "npx run-s -ln clean:build build:prod",
     "clean": "npx run-s -ln clean:*",
     "clean:coverage": "npx rimraf -- ./coverage",
     "clean:build": "npx rimraf -- ./dist"
