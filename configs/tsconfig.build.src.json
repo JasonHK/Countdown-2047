@@ -6,5 +6,8 @@
         "noImplicitReturns": true,
         "noImplicitThis": true,
         "sourceMap": true,
+        "strictBindCallApply": true,
+        "strictNullChecks": true,
+        "strictPropertyInitialization": true,
     },
 }

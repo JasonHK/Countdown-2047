@@ -130,6 +130,7 @@ function ConfigurationFactory(env: string | Record<string, string | number | boo
                 }),
         ],
         optimization: {
+            minimize: isProduction,
             minimizer: [
                 new TerserWebpackPlugin(
                     {
@@ -139,7 +140,7 @@ function ConfigurationFactory(env: string | Record<string, string | number | boo
         },
         watch: enableWatch,
         devServer: {
-            //host: "0.0.0.0",
+            // host: "0.0.0.0",
             port: 2047,
             contentBase: DIRECTORY_DIST,
             inline: true,

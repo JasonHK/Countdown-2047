@@ -6,7 +6,6 @@
             "ES2015",
         ],
         "jsx": "react",
-        "jsxFactory": "h",
     },
     "files": [
         "../src/2047/index.ts",

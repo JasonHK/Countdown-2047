@@ -5,9 +5,15 @@
     ],
     "plugins": [
         [
+            "@babel/plugin-proposal-decorators",
+            {
+                "legacy": true
+            }
+        ],
+        [
             "@babel/plugin-transform-typescript",
             {
-                "jsxPragma": "h",
+                "jsxPragma": "React",
                 "allowNamespaces": true,
                 "isTSX": true,
                 "onlyRemoveTypeImports": true

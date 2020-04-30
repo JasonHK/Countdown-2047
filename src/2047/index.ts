@@ -6,13 +6,14 @@ import * as WorkboxWindow from "workbox-window";
 
 import { COUNTER_SELECTORS, ELEMENT_SELECTORS, EXPIRY_TIME, MESSAGE_RECORDS, SUBTITLE_RECORDS } from "./constants";
 
-import { CountdownTimer } from "./core/countdown-timer";
 import { CounterContainer } from "./core/counter-container";
 import { TimerContainer } from "./core/timer-container";
 
 import { isCountdownEnded } from "./utilities/is-countdown-ended";
 import { updateInnerHTML } from "./utilities/update-inner-html";
 import { updateInnerText } from "./utilities/update-inner-text";
+
+import { CountdownTimer } from "./timer/countdown-timer";
 
 const subtitle = document.querySelector<HTMLElement>(ELEMENT_SELECTORS.SUBTITLE);
 const message = document.querySelector<HTMLElement>(ELEMENT_SELECTORS.MESSAGE);
@@ -27,9 +28,9 @@ const container = new TimerContainer(
         years: new CounterContainer(COUNTER_SELECTORS.YEARS),
     });
 
-const countdown = new CountdownTimer(Moment(EXPIRY_TIME));
-
-updateTimer();
+const countdown = new CountdownTimer(Moment(EXPIRY_TIME))
+    .on("tick", updateTimer)
+    .start();
 
 if (Reflect.has(navigator, "serviceWorker"))
 {
@@ -63,13 +64,12 @@ function awSeriously(): void
 {
     document.body.classList.add("aw-seriously");
 
-    updateInnerText(subtitle, SUBTITLE_RECORDS.VANISHED);
-    updateInnerText(message, MESSAGE_RECORDS.VANISHED);
+    updateInnerText(subtitle!, SUBTITLE_RECORDS.VANISHED);
+    updateInnerText(message!, MESSAGE_RECORDS.VANISHED);
 }
 
-function updateTimer(): void
+function updateTimer(duration: Moment.Duration): void
 {
-    const duration = countdown.getDuration();
     container.updateTimer(duration);
 
     if (isCountdownEnded(duration))
@@ -78,20 +78,17 @@ function updateTimer(): void
     }
     else
     {
-        const timeout: number = duration.milliseconds() + 100;
-        window.setTimeout(updateTimer, timeout);
-
         if (duration.years() < 1)
         {
-            updateInnerText(subtitle, SUBTITLE_RECORDS.ONE_YEAR_LEFT);
+            updateInnerText(subtitle!, SUBTITLE_RECORDS.ONE_YEAR_LEFT);
         }
         else if (duration.years() < 5)
         {
-            updateInnerText(subtitle, SUBTITLE_RECORDS.FIVE_YEARS_LEFT);
+            updateInnerText(subtitle!, SUBTITLE_RECORDS.FIVE_YEARS_LEFT);
         }
         else if (duration.years() < 10)
         {
-            updateInnerText(subtitle, SUBTITLE_RECORDS.TEN_YEARS_LEFT);
+            updateInnerText(subtitle!, SUBTITLE_RECORDS.TEN_YEARS_LEFT);
         }
     }
 }
