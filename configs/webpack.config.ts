@@ -42,7 +42,7 @@ function ConfigurationFactory(env: string | Record<string, string | number | boo
         mode: isProduction ? "production" : "development",
         entry: {
             "2047": [
-                Path.resolve(DIRECTORY_SRC_2047 ,"./index.ts"),
+                Path.resolve(DIRECTORY_SRC_2047 ,"./index.tsx"),
                 Path.resolve(DIRECTORY_SRC_2047 ,"./theme/theme.ts"),
             ],
             "worker": Path.resolve(DIRECTORY_SRC_WORKER, "./index.ts"),
