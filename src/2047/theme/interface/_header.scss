@@ -12,51 +12,51 @@ $header-subtitle-font-size-lg: 35px;
 
 $header-subtitle-text-color: $color-gray-300;
 
-header
-{
-    margin-top: 25px;
-    margin-bottom: 10px;
-    text-align: center;
+// header
+// {
+//     // margin-top: 25px;
+//     // margin-bottom: 10px;
+//     // text-align: center;
 
-    > h1
-    {
-        text-transform: uppercase;
-        font-size: $header-title-font-size;
+//     // > h1
+//     // {
+//     //     text-transform: uppercase;
+//     //     font-size: $header-title-font-size;
 
-        @include screen-sm()
-        {
-            font-size: $header-title-font-size-sm;
-        }
+//     //     @include screen-sm()
+//     //     {
+//     //         font-size: $header-title-font-size-sm;
+//     //     }
 
-        @include screen-md()
-        {
-            font-size: $header-title-font-size-md;
-        }
+//     //     @include screen-md()
+//     //     {
+//     //         font-size: $header-title-font-size-md;
+//     //     }
 
-        @include screen-lg()
-        {
-            font-size: $header-title-font-size-lg;
-        }
-    }
+//     //     @include screen-lg()
+//     //     {
+//     //         font-size: $header-title-font-size-lg;
+//     //     }
+//     // }
 
-    > span
-    {
-        color: $header-subtitle-text-color;
-        font-size: $header-subtitle-font-size;
+//     > span
+//     {
+//         color: $header-subtitle-text-color;
+//         font-size: $header-subtitle-font-size;
 
-        @include screen-sm()
-        {
-            font-size: $header-subtitle-font-size-sm;
-        }
+//         @include screen-sm()
+//         {
+//             font-size: $header-subtitle-font-size-sm;
+//         }
 
-        @include screen-md()
-        {
-            font-size: $header-subtitle-font-size-md;
-        }
+//         @include screen-md()
+//         {
+//             font-size: $header-subtitle-font-size-md;
+//         }
 
-        @include screen-lg()
-        {
-            font-size: $header-subtitle-font-size-lg;
-        }
-    }
-}
+//         @include screen-lg()
+//         {
+//             font-size: $header-subtitle-font-size-lg;
+//         }
+//     }
+// }

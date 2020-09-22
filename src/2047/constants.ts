@@ -2,7 +2,7 @@
 
 import Moment from "moment-mini";
 
-export const EXPIRY_TIME = "2047-07-01T00:00:00.000+08:00";
+export const EXPIRY_TIME = Moment("2047-07-01T00:00:00.000+08:00");
 //export const EXPIRY_TIME = Moment().add(15, "seconds").toISOString();
 
 export namespace ELEMENT_SELECTORS

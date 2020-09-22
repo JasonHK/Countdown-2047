@@ -8,7 +8,7 @@
         "jsx": "react",
     },
     "files": [
-        "../src/2047/index.ts",
+        "../src/2047/index.tsx",
     ],
     "include": [
         "../src/2047/**/*.ts",

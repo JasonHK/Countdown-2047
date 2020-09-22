@@ -6,9 +6,11 @@ Countdown from now to July 1st 2047, the day when hong kong totally vanished.
 [![application-badge]][application] ![application-origin-badge] ![uptime-status-badge] <br>
 ![uptime-ratio-badge] [![website-security-badge]][observatory] [![repository-license-badge]][github-license] [![dependency-status-badge]][libraries.io] ![maintenance-state-badge] [![build-status-badge]][travis] [![code-coverage-badge]][codecov]
 
+# Motivation
+
 <!-- Application -->
 [application]: https://2047.jasonhk.app/
-[application-badge]: https://img.shields.io/badge/try%20it%20on-2047.jasonhk.app-informational?style=for-the-badge "Try the Application!"
+[application-badge]: https://img.shields.io/badge/try%20it%20on-2047.jasonhk.app-informational?style=for-the-badge "Try the application!"
 [application-origin-badge]: https://img.shields.io/badge/made%20in-hong%20kong-blueviolet?style=for-the-badge "Made in Hong Kong!"
 
 <!-- GitHub Repository -->

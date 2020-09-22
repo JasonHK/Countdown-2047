@@ -6,38 +6,30 @@ $footer-link-text-hover-color:  $color-blue-500;
 $footer-link-text-active-color: $color-blue-600;
 $footer-heart-text-color:       $color-red-600;
 
-footer
-{
-    margin-top: 20px;
-    margin-bottom: 15px;
-    text-align: center;
+// footer
+// {
+//     // margin-top: 20px;
+//     // margin-bottom: 15px;
+//     // text-align: center;
 
-    > p
-    {
-        color: $footer-text-color;
+//     > p
+//     {
+//         // color: $footer-text-color;
 
-        a
-        {
-            color: $footer-link-text-color;
-            text-decoration-line: underline;
+//         // a
+//         // {
+//         //     color: $footer-link-text-color;
+//         //     text-decoration-line: underline;
 
-            &:hover
-            {
-                color: $footer-link-text-hover-color;
-            }
+//         //     &:hover
+//         //     {
+//         //         color: $footer-link-text-hover-color;
+//         //     }
 
-            &:active
-            {
-                color: $footer-link-text-active-color;
-            }
-        }
-
-        .heart
-        {
-            color: $footer-heart-text-color;
-            line-height: 16px;
-            font-family: "Segoe UI Symbol", sans-serif;
-            font-size: 20px;
-        }
-    }
-}
+//         //     &:active
+//         //     {
+//         //         color: $footer-link-text-active-color;
+//         //     }
+//         // }
+//     }
+// }
