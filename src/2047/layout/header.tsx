@@ -27,7 +27,9 @@ const useStyles = createUseStyles(
     {
         root: {
             marginTop: "25px",
-        } as JssStyle,
+            marginBottom: "10px",
+            textAlign: "center",
+        },
     });
 
 export function Header(props: IHeaderProps): JSX.Element
@@ -37,14 +39,14 @@ export function Header(props: IHeaderProps): JSX.Element
     const classes = useStyles(props);
 
     return (
-        <header>
+        <header className={ classes.root }>
             <h1>{ title }</h1>
             <h2>{ subtitle }</h2>
         </header>
     );
 }
 
-export interface IHeaderProps extends Partial<WithStyles<typeof styles>>
+export interface IHeaderProps
 {
     title: ReactNode;
     subtitle: ReactNode;
