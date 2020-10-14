@@ -1,3 +1,35 @@
 {
-    "extends": "./configs/tsconfig.base.json",
+    "extends": "@jasonhk/typescript-config",
+    "compilerOptions": {
+        "module": "ESNext",
+        "lib": [
+            "DOM",
+            "DOM.Iterable",
+            "ESNext"
+        ],
+        "baseUrl": ".",
+        "paths": {
+            "@/components/*": ["src/components/*"],
+            "@/theme/*": ["src/theme/*"]
+        },
+        "jsx": "preserve",
+        "allowJs": true,
+        "isolatedModules": true,
+        "noEmit": true,
+        "skipLibCheck": true,
+        "strict": false,
+        "plugins": [
+            {
+                "name": "typescript-plugin-css-modules"
+            }
+        ]
+    },
+    "include": [
+        "next-env.d.ts",
+        "**/*.ts",
+        "**/*.tsx"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
 }
