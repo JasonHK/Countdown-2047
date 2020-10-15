@@ -1,4 +1,11 @@
 {
     "tailwindCSS.emmetCompletions": true,
-    "css.validate": false
+    "css.validate": false,
+    "i18n-ally.localesPaths": "./public/static/locales",
+    "i18n-ally.sourceLanguage": "en-GB",
+    "i18n-ally.keystyle": "nested",
+    "i18n-ally.namespace": true,
+    "i18n-ally.enabledFrameworks": [
+        "react"
+    ]
 }

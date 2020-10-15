@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+@font-face
+{
+    font-family: "Segoe UI Symbol";
+    font-weight: normal;
+    font-style: normal;
+    src:
+        local("Segoe UI Symbol"),
+        local("SegoeUISymbol"),
+        url("./SegoeUISymbol.woff2") format("woff2"),
+        url("./SegoeUISymbol.ttf") format("truetype");
+    font-display: swap;
+}

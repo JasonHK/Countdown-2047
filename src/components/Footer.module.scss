@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+@import "../theme/utilities/colors";
+
+$footer-text-color:             $color-gray-400;
+$footer-heart-text-color:       $color-red-600;
+
+$heart-text-color: $color-red-600;
+
+.root
+{
+    margin-top: 20px;
+    margin-bottom: 15px;
+    text-align: center;
+
+    > p
+    {
+        display: inline-block;
+        color: $footer-text-color;
+    }
+}
+
+.heart
+{
+    color: $heart-text-color;
+    line-height: 0.8em;
+    font-family: "Segoe UI Symbol", sans-serif;
+    font-size: 1.25em;
+}
