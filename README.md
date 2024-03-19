@@ -1,7 +1,7 @@
 Countdown-2047
 ==============
 
-Countdown from now to July 1st 2047, the day when hong kong totally vanished.
+Hong Kong has fallen.
 
 [![application-badge]][application] ![application-origin-badge] ![uptime-status-badge] <br>
 ![uptime-ratio-badge] [![website-security-badge]][observatory] [![repository-license-badge]][github-license] [![dependency-status-badge]][libraries.io] ![maintenance-state-badge] [![build-status-badge]][travis] [![code-coverage-badge]][codecov]
@@ -16,7 +16,7 @@ Countdown from now to July 1st 2047, the day when hong kong totally vanished.
 [repository-license-badge]: https://img.shields.io/github/license/JasonHK/Countdown-2047?style=flat-square "Repository license"
 
 <!-- Maintenance -->
-[maintenance-state-badge]: https://img.shields.io/maintenance/yes/2020?style=flat-square "Maintenance state"
+[maintenance-state-badge]: https://img.shields.io/maintenance/yes/2024?style=flat-square "Maintenance state"
 
 <!-- Uptime Robot -->
 [uptime-status-badge]: https://img.shields.io/uptimerobot/status/m784643956-2abeedc0594ffe5e33e946b4?style=for-the-badge "Uptime status"
